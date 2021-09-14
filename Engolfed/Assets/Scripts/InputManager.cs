@@ -27,7 +27,12 @@ public class InputManager : MonoBehaviour
                 Pose pose = hits[0].pose;
                 Instantiate(AR_object, pose.position, pose.rotation);
             }
+            foreach (var plane in planeManager.trackables)
+            {
+                Debug.Log(plane.gameObject.transform.position);
+            }
         }
+        
 
     }
 
