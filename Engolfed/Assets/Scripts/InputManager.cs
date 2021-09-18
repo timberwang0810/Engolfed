@@ -24,10 +24,10 @@ public class InputManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = AR_Camera.ScreenPointToRay(Input.mousePosition);
-            
+
             //if (raycastManager.Raycast(ray, hits))
             //{
-                
+
             //    Pose pose = hits[0].pose;
             //    Instantiate(AR_object, pose.position, pose.rotation);
             //}
@@ -42,9 +42,14 @@ public class InputManager : MonoBehaviour
                     GameManager.S.StartNewGame(raycastHit.collider.gameObject);
                 }
             }
-
         }
+        //foreach (var plane in planeManager.trackables)
+        //{
+        //    plane.boundaryChanged += 
+
+        //}
     }
+
 
     public void TogglePlaneDetection(bool value, GameObject planeToKeep)
     {
@@ -60,11 +65,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Iterates over all the existing planes and activates
-    /// or deactivates their <c>GameObject</c>s'.
-    /// </summary>
-    /// <param name="value">Each planes' GameObject is SetActive with this value.</param>
+
     void SetAllPlanesActive(bool value, GameObject planeToKeep)
     {
         foreach (var plane in planeManager.trackables)

@@ -56,15 +56,20 @@ public class GameManager : MonoBehaviour
     }
     private void SpawnObjects()
     {
-        foreach(SpawnObjectPair pair in objects)
+        //plane.gameObject.transform.localScale = new Vector3(plane.size.x / 10.00f, 0.1f, plane.size.y / 10.00f);
+        Debug.Log("plane scale: " + plane.gameObject.transform.localScale);
+        foreach (SpawnObjectPair pair in objects)
         {
+            float scale = (plane.size.x * plane.size.y);
             for (int i = 0; i < pair.objectCount; i++)
             {
                 GameObject obj = Instantiate(pair.objectPrefab, new Vector3(Random.Range((-plane.size.x/2) + boundaryPadding, (plane.size.x/2) - boundaryPadding) + plane.center.x,
                     plane.center.y,
                     Random.Range((-plane.size.y/2) + boundaryPadding, (plane.size.y/2) - boundaryPadding) + plane.center.z),
                     Quaternion.identity, plane.gameObject.transform);
-                Debug.Log("size of " + obj.name + ": " + obj.transform.position);
+                obj.transform.localScale *= scale;
+                obj.transform.parent = null;
+                Debug.Log("position of " + obj.name + ": " + obj.transform.position);
             }
         }
     }

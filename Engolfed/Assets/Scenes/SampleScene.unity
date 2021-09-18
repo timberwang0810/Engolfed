@@ -173,15 +173,15 @@ MonoBehaviour:
   - objectPrefab: {fileID: 2467113222353864311, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
     objectCount: 1
   - objectPrefab: {fileID: 9134733993019917927, guid: caa7a3768bdf14f14a4d5ddafc9368b1, type: 3}
-    objectCount: 2
+    objectCount: 1
   - objectPrefab: {fileID: 7095992994519944131, guid: a7d299bb23a48458aa89c24e16374e9d, type: 3}
-    objectCount: 2
+    objectCount: 1
   - objectPrefab: {fileID: 9104479344849840743, guid: 2e498f872f5bb462eba8cabd3fd70e12, type: 3}
     objectCount: 1
   - objectPrefab: {fileID: 912609250708799220, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
     objectCount: 1
   - objectPrefab: {fileID: 5595352777468223487, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
-    objectCount: 10
+    objectCount: 1
   boundaryPadding: 0.15
 --- !u!1 &461415271
 GameObject:
