@@ -123,6 +123,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &95133336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95133337}
+  - component: {fileID: 95133338}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95133337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95133336}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1881184241}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95133338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95133336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a425bcb7f3bd418fa9adfbbaa057283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
+  objects:
+  - objectPrefab: {fileID: 1415965374060809345, guid: 8f379e790a8a6457c91c76c96f8aaa52, type: 3}
+    objectCount: 1
+  - objectPrefab: {fileID: 2467113222353864311, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
+    objectCount: 1
+  - objectPrefab: {fileID: 9134733993019917927, guid: caa7a3768bdf14f14a4d5ddafc9368b1, type: 3}
+    objectCount: 2
+  - objectPrefab: {fileID: 7095992994519944131, guid: a7d299bb23a48458aa89c24e16374e9d, type: 3}
+    objectCount: 2
+  - objectPrefab: {fileID: 9104479344849840743, guid: 2e498f872f5bb462eba8cabd3fd70e12, type: 3}
+    objectCount: 1
+  - objectPrefab: {fileID: 912609250708799220, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
+    objectCount: 1
+  - objectPrefab: {fileID: 5595352777468223487, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
+    objectCount: 10
+  boundaryPadding: 0.15
 --- !u!1 &461415271
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2062584855}
+  - {fileID: 95133337}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -543,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ddfa186db8349ee831e79b7cc5b5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AR_object: {fileID: 919132149155446097, guid: 79c22a2f858fe480bbec39d9e351ced1, type: 3}
+  AR_object: {fileID: 2467113222353864311, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
   AR_Camera: {fileID: 765358888}
   raycastManager: {fileID: 1148720174}
   planeManager: {fileID: 1148720173}

@@ -21,24 +21,28 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO: Test plane detection- only detect one plane
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = AR_Camera.ScreenPointToRay(Input.mousePosition);
-            if (raycastManager.Raycast(ray, hits))
-            {
+            
+            //if (raycastManager.Raycast(ray, hits))
+            //{
                 
-                Pose pose = hits[0].pose;
-                Instantiate(AR_object, pose.position, pose.rotation);
-            }
+            //    Pose pose = hits[0].pose;
+            //    Instantiate(AR_object, pose.position, pose.rotation);
+            //}
             if (!planeLocked)
             {
                 if (Physics.Raycast(ray, out RaycastHit raycastHit))
                 {
                     TogglePlaneDetection(false, raycastHit.collider.gameObject);
                     planeLocked = true;
+                    //var plane = raycastHit.collider.gameObject.GetComponent<ARPlane>();
+                    //plane.size
+                    GameManager.S.StartNewGame(raycastHit.collider.gameObject);
                 }
             }
+
         }
     }
 
