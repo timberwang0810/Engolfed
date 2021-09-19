@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public float boundaryPadding = 0.15f;
     private ARPlane plane;
 
+    // Game Variables
+    private int numBalls;
+
     private void Awake()
     {
         // Singleton Definition
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("center: " + plane.center);
 
         SpawnObjects();
+        gameState = GameState.playing;
     }
     private void SpawnObjects()
     {
@@ -70,7 +74,20 @@ public class GameManager : MonoBehaviour
                 obj.transform.localScale *= scale;
                 obj.transform.parent = null;
                 Debug.Log("position of " + obj.name + ": " + obj.transform.position);
+                if (obj.CompareTag("Ball")) numBalls++;
             }
         }
+    }
+
+    public void OnBallCaptured()
+    {
+        if (gameState != GameState.playing) return;
+        numBalls--;
+        if (numBalls <= 0) OnGameWon();
+    }
+
+    private void OnGameWon()
+    {
+        gameState = GameState.oops;
     }
 }
