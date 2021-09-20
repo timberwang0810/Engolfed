@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4770587119916600686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__group2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5003842196329828850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6049637190222859172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pasted__group 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7888842826919936245}
   - component: {fileID: 6695038905727203419}
   - component: {fileID: 77567231775573342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pasted__pasted__pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1480327536905895257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4650467647308364961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 8031412736188257264}
   - component: {fileID: 1638864900984097992}
   - component: {fileID: 4187596854074304099}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pPlatonic1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9064670567267054721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 8537681039178142957}
   - component: {fileID: 4037803065103073038}
   - component: {fileID: 1589405472348003185}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pasted__pasted__pPlatonic1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9048973798150264843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7040661694088102274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__group1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 114522931978481149}
   - component: {fileID: 8384336007438974337}
   - component: {fileID: 4544616356280491366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pPlatonic1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 7754754158948037764}
   - component: {fileID: 7076064594703886108}
   - component: {fileID: 5397721011114002988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 8236219512034165051}
   - component: {fileID: 6372921535493992724}
   - component: {fileID: 5524080224135083488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pPlatonic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 3005811044564995339}
   - component: {fileID: 5633208941900860685}
   - component: {fileID: 9152836629035199928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 5216885016249875350}
   - component: {fileID: 3942843532292776477}
   - component: {fileID: 4124568829470637540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,7 +905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7239033302864357469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__group 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 8140717218245883460}
   - component: {fileID: 6592066515686451758}
   - component: {fileID: 2841824037527496950}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pPlatonic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3999820860364042755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8957271263583435239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 722105594450207710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5200026290522239545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pasted__group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1141,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7580077850447171961}
-  m_Layer: 0
+  - component: {fileID: -6297262262950504294}
+  - component: {fileID: 5562825235894835052}
+  m_Layer: 8
   m_Name: tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,6 +1175,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-6297262262950504294
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095992994519944131}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &5562825235894835052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095992994519944131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06970525, y: 0.06803674, z: 0.07007377}
+  m_Center: {x: -0.0010252148, y: 0.032737758, z: 0.0021378994}
 --- !u!1 &7247532022767623952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4595330677286013701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1853227511598852586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1244,7 +1275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3527925087491033924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,7 +1308,7 @@ GameObject:
   - component: {fileID: 4332683633447370815}
   - component: {fileID: 6679474933798173737}
   - component: {fileID: 5005301498548568051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1356,7 +1387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8423034714688925556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__group2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4400900364283122959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,7 +1451,7 @@ GameObject:
   - component: {fileID: 3388790212990079920}
   - component: {fileID: 3153864103515236612}
   - component: {fileID: 8306808106774933495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pasted__pasted__pasted__pPlatonic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
