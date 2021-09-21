@@ -399,15 +399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8813072200752620644, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8813072200752620644, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8813072200752620644, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8813072200752620644, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: generatedMeshCollider
       value: 
       objectReference: {fileID: 5556794859607187839}
+    - target: {fileID: 8813072200752620647, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8813072201485161718, guid: 05dfc32610f0144d6a9fcf13f8fa1a33, type: 3}
       propertyPath: m_Layer
       value: 10

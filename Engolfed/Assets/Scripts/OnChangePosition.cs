@@ -45,9 +45,9 @@ public class OnChangePosition : MonoBehaviour
                 GameObject obj = Instantiate(pair.objectPrefab, new Vector3(Random.Range(plane.GetComponent<Renderer>().bounds.min.x + boundaryPadding, plane.GetComponent<Renderer>().bounds.max.x - boundaryPadding),
                     plane.transform.position.y + 0.1f,
                     Random.Range(plane.GetComponent<Renderer>().bounds.min.z + boundaryPadding, plane.GetComponent<Renderer>().bounds.max.z - boundaryPadding)),
-                    Quaternion.identity, plane.gameObject.transform);
-                obj.transform.localScale *= 10;
-                obj.transform.parent = null;
+                    Quaternion.identity);
+                //obj.transform.localScale *= 10;
+                //obj.transform.parent = null;
                 obj.GetComponent<Rigidbody>().useGravity = false;
                 if (obj.layer == LayerMask.NameToLayer("Obstacles") && obj.GetComponent<Collider>() != null)
                 {
