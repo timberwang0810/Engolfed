@@ -12,9 +12,15 @@ public class OnChangePosition : MonoBehaviour
     Mesh generatedMesh;
 
     public float initialScale = 0.5f;
-    public float speed = 3.0f;
+    public float speed = 0.0f;
+    public Vector3 direction;
+    public float drag = 500.0f;
+
+    const float max_hit_speed = 0.15f;
 
     public GameObject ground;
+
+    int update_counter = 0;
 
 
 
@@ -35,31 +41,67 @@ public class OnChangePosition : MonoBehaviour
         Vector3 pos = transform.position;
         Vector3 groundPos = ground.transform.position;
         Vector3 groundScale = ground.transform.localScale / 2;
-        float[] groundBoundary = new float[] {groundPos.x - groundScale.x, groundPos.x + groundScale.x, groundPos.z - groundScale.z, groundPos.z + groundScale.z};
+        float[] groundBoundary = new float[] { groundPos.x - groundScale.x, groundPos.x + groundScale.x, groundPos.z - groundScale.z, groundPos.z + groundScale.z };
 
-        if (Input.GetKey("a") && (pos.x - transform.localScale.x/2) > groundBoundary[0])
+        if (Input.GetKey("a"))
         {
-            pos.x -= speed * Time.deltaTime;
+            direction.Set(-1, 0, 0);
+            speed = max_hit_speed;
+
         }
-        if (Input.GetKey("d") && (pos.x + transform.localScale.x/2) < groundBoundary[1])
+        if (Input.GetKey("d"))
         {
-            pos.x += speed * Time.deltaTime;
+            direction.Set(1, 0, 0);
+            speed = max_hit_speed;
         }
-        if (Input.GetKey("s") && (pos.z - transform.localScale.z/2) > groundBoundary[2])
+        if (Input.GetKey("s"))
         {
-            pos.z -= speed * Time.deltaTime;
+            direction.Set(0, 0, -1);
+            speed = max_hit_speed;
         }
-        if (Input.GetKey("w") && (pos.z + transform.localScale.z/2) < groundBoundary[3])
+        if (Input.GetKey("w"))
         {
-            pos.z += speed * Time.deltaTime;
+            direction.Set(0, 0, 1);
+            speed = max_hit_speed;
         }
 
         if (Input.GetKey("r"))
         {
-            speed = 3.0f;
+            speed = 1.0f;
         }
 
-        transform.position = pos;
+        if(((pos.x - transform.localScale.x / 2) <= groundBoundary[0]) ||
+            ((pos.x + transform.localScale.x / 2) >= groundBoundary[1]))
+        {
+            direction.Set(-1 * direction.x, 0, 0);
+            if (speed > drag)
+            {
+                speed *= 0.5f;
+            }
+        }
+        if (((pos.z - transform.localScale.z / 2) <= groundBoundary[2]) ||
+            ((pos.z + transform.localScale.z / 2) >= groundBoundary[3]))
+        {
+            direction.Set(0, 0, -1 * direction.z);
+            if (speed > drag) {
+                speed *= 0.5f;
+            }
+        }
+
+        if (speed > 0)
+        {
+            if (update_counter % 8 == 0)
+            {
+                speed -= drag * Time.deltaTime;
+                if (speed < 0)
+                {
+                    speed = 0;
+                }
+            }
+            transform.position += direction * speed;
+        }
+
+        update_counter++;
     }
 
     public IEnumerator ScaleHole()
@@ -97,6 +139,10 @@ public class OnChangePosition : MonoBehaviour
     {
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
+        if (other.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
+        {
+            speed = 0.0f;
+        }
     }
 
     private void OnTriggerExit(Collider other)
