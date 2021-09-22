@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(plane.size);
         Debug.Log("center: " + plane.center);
         GameObject spawnedPlane = Instantiate(boxPlane, plane.center, Quaternion.identity);
+        spawnedPlane.transform.Rotate(new Vector3(90, 0, 0));
         Destroy(planeObj);
         holeScript = spawnedPlane.GetComponentInChildren<OnChangePosition>();
         Debug.Log("holeScript: " + holeScript != null);

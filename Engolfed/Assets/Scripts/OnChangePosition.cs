@@ -64,7 +64,7 @@ public class OnChangePosition : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.S.gameState != GameManager.GameState.playing) return;
+        //if (GameManager.S.gameState != GameManager.GameState.playing) return;
         Vector3 pos = transform.position;
         Vector3 groundPos = ground.transform.position;
         Vector3 groundScale = ground.transform.localScale / 2;
@@ -88,18 +88,37 @@ public class OnChangePosition : MonoBehaviour
         //    pos.z += speed * Time.deltaTime;
         //}
 
+        if (Input.GetKey("a"))
+        {
+            //Debug.Log("pressed");
+            pos.x -= speed * Time.deltaTime;
+        }
+        if (Input.GetKey("d"))
+        {
+            pos.x += speed * Time.deltaTime;
+        }
+        if (Input.GetKey("s"))
+        {
+            pos.z -= speed * Time.deltaTime;
+        }
+        if (Input.GetKey("w"))
+        {
+            pos.z += speed * Time.deltaTime;
+        }
+
+
         //if (Input.GetKey("r"))
         //{
         //    speed = 3.0f;
         //}
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 dir = Camera.main.gameObject.transform.forward;
-            dir.y = 0;
-            float updatedSpeed = startSpeed + acceleration * Time.deltaTime;
-            pos += dir * speed * Time.deltaTime;
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 dir = Camera.main.gameObject.transform.forward;
+        //    dir.y = 0;
+        //    float updatedSpeed = startSpeed + acceleration * Time.deltaTime;
+        //    pos += dir * speed * Time.deltaTime;
+        //}
 
         transform.position = pos;
     }
@@ -137,6 +156,7 @@ public class OnChangePosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + hole2DCollider.bounds.size);
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
     }

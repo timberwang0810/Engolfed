@@ -137,7 +137,6 @@ public class OnChangePosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + GetComponent<SphereCollider>().bounds.size);
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
         if (other.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))

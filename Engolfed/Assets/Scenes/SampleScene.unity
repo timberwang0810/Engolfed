@@ -184,7 +184,7 @@ MonoBehaviour:
     objectCount: 1
   boundaryPadding: 0.15
   holeScript: {fileID: 0}
-  boxPlane: {fileID: 4774371447896877579, guid: 5983b050462fd4c8abc637ebc226d085, type: 3}
+  boxPlane: {fileID: 2502359601143191120, guid: 111b1f99a52c5446bac05849089d2fab, type: 3}
 --- !u!1 &461415271
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ Camera:
   m_GameObject: {fileID: 765358887}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
