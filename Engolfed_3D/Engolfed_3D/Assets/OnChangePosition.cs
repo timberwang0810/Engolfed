@@ -14,9 +14,10 @@ public class OnChangePosition : MonoBehaviour
     public float initialScale = 0.5f;
     public float speed = 0.0f;
     public Vector3 direction;
-    public float drag = 500.0f;
+    public float drag = 1.0f;
 
-    const float max_hit_speed = 0.15f;
+    const float max_hit_speed = 0.05f; //0.15
+    const float obstacleCollisionDelta = 0.05f;
 
     public GameObject ground;
 
@@ -43,23 +44,23 @@ public class OnChangePosition : MonoBehaviour
         Vector3 groundScale = ground.transform.localScale / 2;
         float[] groundBoundary = new float[] { groundPos.x - groundScale.x, groundPos.x + groundScale.x, groundPos.z - groundScale.z, groundPos.z + groundScale.z };
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") && speed == 0)
         {
             direction.Set(-1, 0, 0);
             speed = max_hit_speed;
 
         }
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") && speed == 0)
         {
             direction.Set(1, 0, 0);
             speed = max_hit_speed;
         }
-        if (Input.GetKey("s"))
+        if (Input.GetKey("s") && speed == 0)
         {
             direction.Set(0, 0, -1);
             speed = max_hit_speed;
         }
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") && speed == 0)
         {
             direction.Set(0, 0, 1);
             speed = max_hit_speed;
@@ -70,21 +71,24 @@ public class OnChangePosition : MonoBehaviour
             speed = 1.0f;
         }
 
-        if(((pos.x - transform.localScale.x / 2) <= groundBoundary[0]) ||
-            ((pos.x + transform.localScale.x / 2) >= groundBoundary[1]))
+        if((((pos.x + direction.x * speed) - transform.localScale.x / 2) <= groundBoundary[0]) ||
+            (((pos.x + direction.x * speed) + transform.localScale.x / 2) >= groundBoundary[1]))
         {
             direction.Set(-1 * direction.x, 0, 0);
-            if (speed > drag)
+            speed = speed / 2;
+            if(speed <= drag * Time.deltaTime)
             {
-                speed *= 0.5f;
+                speed = drag * Time.deltaTime + 0.01f;
             }
         }
-        if (((pos.z - transform.localScale.z / 2) <= groundBoundary[2]) ||
-            ((pos.z + transform.localScale.z / 2) >= groundBoundary[3]))
+        if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
+            (((pos.z + direction.z * speed) + transform.localScale.z / 2) >= groundBoundary[3]))
         {
             direction.Set(0, 0, -1 * direction.z);
-            if (speed > drag) {
-                speed *= 0.5f;
+            speed = speed / 2;
+            if (speed <= drag * Time.deltaTime)
+            {
+                speed = drag * Time.deltaTime + 0.01f;
             }
         }
 
@@ -118,29 +122,23 @@ public class OnChangePosition : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision");
-        if (collision.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
-        {
-            speed = 0.0f;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
-        {
-            speed = 3.0f;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
-        if (other.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
+
+
+        float col_x_len = other.gameObject.GetComponent<Collider>().bounds.extents.x;
+        float col_z_len = other.gameObject.GetComponent<Collider>().bounds.extents.z;
+
+        float hole_x_len = GetComponent<Collider>().bounds.extents.x;
+        float hole_z_len = GetComponent<Collider>().bounds.extents.z;
+
+        if ((col_x_len + obstacleCollisionDelta > hole_x_len) ||
+           (col_z_len + obstacleCollisionDelta > hole_z_len))
         {
+            Debug.Log("collision");
+            Debug.Log(other.name);
             speed = 0.0f;
         }
     }
