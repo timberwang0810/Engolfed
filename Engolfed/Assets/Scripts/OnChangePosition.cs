@@ -18,6 +18,8 @@ public class OnChangePosition : MonoBehaviour
     public float drag = 500.0f;
 
     const float max_hit_speed = 0.15f;
+    private Vector3 offset;
+    private Vector3 lastHolePosition;
 
     public GameObject ground;
     int update_counter = 0;
@@ -32,6 +34,10 @@ public class OnChangePosition : MonoBehaviour
                 Physics.IgnoreCollision(go.GetComponent<Collider>(), generatedMeshCollider, true);
             }
         }
+        hole2DCollider.transform.position = transform.position;
+        hole2DCollider.transform.localScale = new Vector3(1, 1, 1) * initialScale;
+        offset = GameObject.Find("Quad").transform.position;
+        lastHolePosition = transform.position;
     }
 
     public IEnumerator SpawnObjects(GameObject plane, GameManager.SpawnObjectPair[] objects, float boundaryPadding)
@@ -224,30 +230,37 @@ public class OnChangePosition : MonoBehaviour
         if (transform.hasChanged == true)
         {
             transform.hasChanged = false;
-            hole2DCollider.transform.position = transform.position;
-            hole2DCollider.transform.localScale = transform.localScale * initialScale;
+            hole2DCollider.transform.position += new Vector3(transform.position.x - lastHolePosition.x, transform.position.z - lastHolePosition.z, 0);
+            hole2DCollider.transform.localScale = new Vector3(1,1,1) * initialScale;
+            Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
             MakeHole2D();
             Make3DMeshCollider();
+            lastHolePosition = transform.position;
         }
     }
 
     private void MakeHole2D()
     {
         Vector2[] PointPositions = hole2DCollider.GetPath(0);
-
         for (int i = 0; i < PointPositions.Length; i++)
         {
-            PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i]);
+            PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i])-offset;
         }
         string msg = "";
-        foreach (Vector2 v in PointPositions)
+        foreach (Vector3 v in PointPositions)
         {
-            msg += v.ToString() + ", ";
+            msg += new Vector3((float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000)).ToString() + ", ";
         }
         Debug.Log(msg);
         Debug.Log("hole 2d collider: " + hole2DCollider.bounds.size);
         ground2DCollider.pathCount = 2;
         ground2DCollider.SetPath(1, PointPositions);
+        msg = "newly drawn: ";
+        foreach (Vector3 v in ground2DCollider.GetPath(1))
+        {
+            msg += v.ToString() + ", ";
+        }
+        Debug.Log(msg);
         Debug.Log("ground2d collider: " + ground2DCollider.bounds.size);
 
     }
@@ -258,7 +271,7 @@ public class OnChangePosition : MonoBehaviour
         {
             Destroy(generatedMesh);
         }
-        generatedMesh = ground2DCollider.CreateMesh(false, true);
+        generatedMesh = ground2DCollider.CreateMesh(false, false);
         //Debug.Log("generated mesh bound size: " + generatedMesh.bounds.size);
         generatedMeshCollider.sharedMesh = generatedMesh;
     }
