@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     }
 
     public SpawnObjectPair[] objects;
-    public float boundaryPadding = 0.15f;
+    public float boundaryPadding = 0.1f;
+    public OnChangePosition holeScript;
+    public GameObject boxPlane;
     private ARPlane plane;
 
     // Game Variables
@@ -52,10 +54,15 @@ public class GameManager : MonoBehaviour
     public void StartNewGame(GameObject planeObj)
     {
         plane = planeObj.GetComponent<ARPlane>();
+        Debug.Log("plane: " + plane != null);
         Debug.Log(plane.size);
         Debug.Log("center: " + plane.center);
-
-        SpawnObjects();
+        GameObject spawnedPlane = Instantiate(boxPlane, plane.center, Quaternion.identity);
+        spawnedPlane.transform.Rotate(new Vector3(90, 0, 0));
+        Destroy(planeObj);
+        holeScript = spawnedPlane.GetComponentInChildren<OnChangePosition>();
+        Debug.Log("holeScript: " + holeScript != null);
+        StartCoroutine(holeScript.SpawnObjects(spawnedPlane, objects, boundaryPadding));
         gameState = GameState.playing;
     }
     private void SpawnObjects()
@@ -68,7 +75,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < pair.objectCount; i++)
             {
                 GameObject obj = Instantiate(pair.objectPrefab, new Vector3(Random.Range((-plane.size.x/2) + boundaryPadding, (plane.size.x/2) - boundaryPadding) + plane.center.x,
-                    plane.center.y,
+                    plane.center.y + 1.0f,
                     Random.Range((-plane.size.y/2) + boundaryPadding, (plane.size.y/2) - boundaryPadding) + plane.center.z),
                     Quaternion.identity, plane.gameObject.transform);
                 obj.transform.localScale *= scale;
@@ -77,6 +84,12 @@ public class GameManager : MonoBehaviour
                 if (obj.CompareTag("Ball")) numBalls++;
             }
         }
+        plane.transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void OnBallSpawned()
+    {
+        numBalls++;
     }
 
     public void OnBallCaptured()

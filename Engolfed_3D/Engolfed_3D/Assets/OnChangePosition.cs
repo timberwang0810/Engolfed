@@ -30,7 +30,7 @@ public class OnChangePosition : MonoBehaviour
         GameObject[] allGameObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach (var go in allGameObjects)
         {
-            if(go.layer == LayerMask.NameToLayer("Obstacles"))
+            if(go.layer == LayerMask.NameToLayer("Obstacles") && go.GetComponent<Collider>() != null)
             {
                 Physics.IgnoreCollision(go.GetComponent<Collider>(), generatedMeshCollider, true);
             }
