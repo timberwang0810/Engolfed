@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567996624375899214}
   - component: {fileID: -2083343833466561872}
-  - component: {fileID: -5676196841862928502}
+  - component: {fileID: 7765857496210625202}
   m_Layer: 8
   m_Name: bunnies
   m_TagString: Untagged
@@ -248,8 +248,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-5676196841862928502
-BoxCollider:
+--- !u!135 &7765857496210625202
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -259,8 +259,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.05}
-  m_Center: {x: 0.01, y: 0.024, z: 0}
+  m_Radius: 0.028
+  m_Center: {x: 0, y: 0.0243, z: 0}
 --- !u!1 &942135642318073156
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,13 @@ public class OnChangePosition : MonoBehaviour
 
     public float initialScale = 0.5f;
     public float speed = 3.0f;
-    public float acceleration = 0.5f;
+    public Vector3 direction;
+    public float drag = 500.0f;
+
+    const float max_hit_speed = 0.15f;
 
     public GameObject ground;
+    int update_counter = 0;
 
     private void Start()
     {
@@ -64,29 +68,79 @@ public class OnChangePosition : MonoBehaviour
 
     private void Update()
     {
-        //if (GameManager.S.gameState != GameManager.GameState.playing) return;
+        if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
+
         Vector3 pos = transform.position;
         Vector3 groundPos = ground.transform.position;
         Vector3 groundScale = ground.transform.localScale / 2;
-        float startSpeed = speed;
         float[] groundBoundary = new float[] { groundPos.x - groundScale.x, groundPos.x + groundScale.x, groundPos.z - groundScale.z, groundPos.z + groundScale.z };
 
-        //if (Input.GetKey("a") && (pos.x - transform.localScale.x / 2) > groundBoundary[0])
+        //if (Input.GetKey("a"))
         //{
-        //    pos.x -= speed * Time.deltaTime;
+        //    direction.Set(-1, 0, 0);
+        //    speed = max_hit_speed;
+
         //}
-        //if (Input.GetKey("d") && (pos.x + transform.localScale.x / 2) < groundBoundary[1])
+        //if (Input.GetKey("d"))
         //{
-        //    pos.x += speed * Time.deltaTime;
+        //    direction.Set(1, 0, 0);
+        //    speed = max_hit_speed;
         //}
-        //if (Input.GetKey("s") && (pos.z - transform.localScale.z / 2) > groundBoundary[2])
+        //if (Input.GetKey("s"))
         //{
-        //    pos.z -= speed * Time.deltaTime;
+        //    direction.Set(0, 0, -1);
+        //    speed = max_hit_speed;
         //}
-        //if (Input.GetKey("w") && (pos.z + transform.localScale.z / 2) < groundBoundary[3])
+        //if (Input.GetKey("w"))
         //{
-        //    pos.z += speed * Time.deltaTime;
+        //    direction.Set(0, 0, 1);
+        //    speed = max_hit_speed;
         //}
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 dir = Camera.main.gameObject.transform.forward;
+        //    direction.Set(dir.x, 0, dir.z);
+        //    speed = max_hit_speed;
+        //}
+
+        //if (Input.GetKey("r"))
+        //{
+        //    speed = 1.0f;
+        //}
+
+        //if (((pos.x - transform.localScale.x / 2) <= groundBoundary[0]) ||
+        //    ((pos.x + transform.localScale.x / 2) >= groundBoundary[1]))
+        //{
+        //    direction.Set(-1 * direction.x, 0, 0);
+        //    if (speed > drag)
+        //    {
+        //        speed *= 0.5f;
+        //    }
+        //}
+        //if (((pos.z - transform.localScale.z / 2) <= groundBoundary[2]) ||
+        //    ((pos.z + transform.localScale.z / 2) >= groundBoundary[3]))
+        //{
+        //    direction.Set(0, 0, -1 * direction.z);
+        //    if (speed > drag)
+        //    {
+        //        speed *= 0.5f;
+        //    }
+        //}
+
+        //if (speed > 0)
+        //{
+        //    if (update_counter % 8 == 0)
+        //    {
+        //        speed -= drag * Time.deltaTime;
+        //        if (speed < 0)
+        //        {
+        //            speed = 0;
+        //        }
+        //    }
+        //    transform.position += direction * speed;
+        //}
+
+        //update_counter++;
 
         if (Input.GetKey("a"))
         {
@@ -112,14 +166,12 @@ public class OnChangePosition : MonoBehaviour
         //    speed = 3.0f;
         //}
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector3 dir = Camera.main.gameObject.transform.forward;
-        //    dir.y = 0;
-        //    float updatedSpeed = startSpeed + acceleration * Time.deltaTime;
-        //    pos += dir * speed * Time.deltaTime;
-        //}
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 dir = Camera.main.gameObject.transform.forward;
+            dir.y = 0;
+            pos += dir * speed * Time.deltaTime;
+        }
         transform.position = pos;
     }
 
@@ -172,7 +224,7 @@ public class OnChangePosition : MonoBehaviour
         if (transform.hasChanged == true)
         {
             transform.hasChanged = false;
-            hole2DCollider.transform.position = new Vector2(transform.position.x, transform.position.z);
+            hole2DCollider.transform.position = transform.position;
             hole2DCollider.transform.localScale = transform.localScale * initialScale;
             MakeHole2D();
             Make3DMeshCollider();
@@ -187,9 +239,17 @@ public class OnChangePosition : MonoBehaviour
         {
             PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i]);
         }
-
+        string msg = "";
+        foreach (Vector2 v in PointPositions)
+        {
+            msg += v.ToString() + ", ";
+        }
+        Debug.Log(msg);
+        Debug.Log("hole 2d collider: " + hole2DCollider.bounds.size);
         ground2DCollider.pathCount = 2;
         ground2DCollider.SetPath(1, PointPositions);
+        Debug.Log("ground2d collider: " + ground2DCollider.bounds.size);
+
     }
 
     private void Make3DMeshCollider()
@@ -198,7 +258,8 @@ public class OnChangePosition : MonoBehaviour
         {
             Destroy(generatedMesh);
         }
-        generatedMesh = ground2DCollider.CreateMesh(true, true);
+        generatedMesh = ground2DCollider.CreateMesh(false, true);
+        //Debug.Log("generated mesh bound size: " + generatedMesh.bounds.size);
         generatedMeshCollider.sharedMesh = generatedMesh;
     }
 }

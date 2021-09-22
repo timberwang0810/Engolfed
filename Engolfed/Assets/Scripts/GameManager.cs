@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public SpawnObjectPair[] objects;
     public float boundaryPadding = 0.1f;
     public OnChangePosition holeScript;
-    public GameObject boxPlane;
+    public GameObject[] gameScene;
     private ARPlane plane;
 
     // Game Variables
@@ -57,12 +57,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("plane: " + plane != null);
         Debug.Log(plane.size);
         Debug.Log("center: " + plane.center);
-        GameObject spawnedPlane = Instantiate(boxPlane, plane.center, Quaternion.identity);
-        spawnedPlane.transform.Rotate(new Vector3(90, 0, 0));
+        foreach (GameObject go in gameScene)
+        {
+            Debug.Log(go.gameObject.name);
+            go.SetActive(true);
+            go.transform.position += plane.center;
+        }
         Destroy(planeObj);
-        holeScript = spawnedPlane.GetComponentInChildren<OnChangePosition>();
-        Debug.Log("holeScript: " + holeScript != null);
-        StartCoroutine(holeScript.SpawnObjects(spawnedPlane, objects, boundaryPadding));
+        //holeScript = boxPlane.GetComponentInChildren<OnChangePosition>();
+        //Debug.Log("holeScript: " + holeScript != null);
+        //StartCoroutine(holeScript.SpawnObjects(boxPlane, objects, boundaryPadding));
         gameState = GameState.playing;
     }
     private void SpawnObjects()

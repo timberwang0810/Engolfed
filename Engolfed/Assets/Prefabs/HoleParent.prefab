@@ -150,6 +150,8 @@ MonoBehaviour:
   groundCollider: {fileID: 0}
   initialScale: 0.5
   speed: 3
+  direction: {x: 0, y: 0, z: 0}
+  drag: 500
   ground: {fileID: 0}
 --- !u!135 &8813072200752620647
 SphereCollider:

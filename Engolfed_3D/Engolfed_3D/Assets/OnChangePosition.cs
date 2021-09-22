@@ -182,7 +182,9 @@ public class OnChangePosition : MonoBehaviour
         {
             Destroy(generatedMesh);
         }
+        Debug.Log("generated mesh bound size: " + ground2DCollider.bounds.size);
         generatedMesh = ground2DCollider.CreateMesh(true, true);
+        //Debug.Log("generated mesh bound size: " + generatedMesh.bounds.size);
         generatedMeshCollider.sharedMesh = generatedMesh;
     }
 }
