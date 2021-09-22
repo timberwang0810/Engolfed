@@ -824,6 +824,8 @@
         "m_GuidSerialized": "ee48fa8d-c1d3-46ab-9c1c-8f70c38daa15"
     },
     "m_Name": "Base",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_2886E63F",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -848,6 +850,8 @@
         "m_GuidSerialized": "a383169d-fe95-4a4a-8180-f3eeff55cf97"
     },
     "m_Name": "Edge",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_5BF0AE0",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -1155,6 +1159,8 @@
         "m_GuidSerialized": "ef7c3ae4-1dd9-48e5-9d89-ebe30d1c81e4"
     },
     "m_Name": "Border",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_82B81E98",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -2210,6 +2216,8 @@
         "m_GuidSerialized": "141492b3-7dda-4cfb-910c-b9ee3f0d300f"
     },
     "m_Name": "Thickness",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_52137177",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,

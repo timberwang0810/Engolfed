@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HoleMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 3739e562a03fc0b4982d8aa66cc50865, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 22c05420d97794d478f2c1a32f440032, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -120,6 +120,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_52137177: -5
     - Vector1_5BF0AE0: 110
@@ -156,7 +157,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_2886E63F: {r: 0.8113208, g: 0, b: 0, a: 0}
-    - Color_82B81E98: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+    - Color_82B81E98: {r: 0, g: 0, b: 0, a: 0}
     - _BASE_COLOR: {r: 0.11320752, g: 0.10199357, b: 0.10199357, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
