@@ -200,13 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294107782}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_LocalRotation: {x: 0.445444, y: -0, z: -0, w: 0.89530987}
   m_LocalPosition: {x: -0.022, y: 0.99400014, z: -0.653}
-=======
-  m_LocalRotation: {x: 0.077879764, y: -0, z: -0, w: 0.9969628}
-  m_LocalPosition: {x: 0.12800026, y: 0.8039999, z: -1.6379995}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 452407522}
@@ -244,16 +239,12 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
 --- !u!4 &570961366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
   m_PrefabInstance: {fileID: 1328288867}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &753909373
-=======
---- !u!1 &452407521
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,50 +252,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   - component: {fileID: 753909374}
   m_Layer: 0
   m_Name: Obstacles
-=======
-  - component: {fileID: 452407522}
-  m_Layer: 0
-  m_Name: GameObject
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
 --- !u!4 &753909374
-=======
---- !u!4 &452407522
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_GameObject: {fileID: 753909373}
-=======
-  m_GameObject: {fileID: 452407521}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   - {fileID: 1729043676}
   - {fileID: 570961366}
   - {fileID: 1905903412}
-=======
-  - {fileID: 294107785}
-  - {fileID: 1446655182331527281}
-  - {fileID: 2104595979}
-  - {fileID: 1328288868}
-  - {fileID: 1628043313}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,11 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_RootOrder: 9
-=======
-  m_RootOrder: 3
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010970126
 GameObject:
@@ -419,11 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_RootOrder: 8
-=======
-  m_RootOrder: 2
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156748167
 GameObject:
@@ -686,11 +647,7 @@ RectTransform:
   m_Children:
   - {fileID: 1158676104}
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_RootOrder: 7
-=======
-  m_RootOrder: 1
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -702,7 +659,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
     m_TransformParent: {fileID: 753909374}
     m_Modifications:
     - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
@@ -720,25 +676,6 @@ PrefabInstance:
     - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.175
-=======
-    m_TransformParent: {fileID: 452407522}
-    m_Modifications:
-    - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.013000011
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.25
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 5110880894253352261, guid: b856ffb96c2d742ccaa5e8a4e3108014, type: 3}
       propertyPath: m_LocalRotation.w
@@ -788,7 +725,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
     m_TransformParent: {fileID: 753909374}
     m_Modifications:
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
@@ -810,17 +746,6 @@ PrefabInstance:
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.233
-=======
-    m_TransformParent: {fileID: 452407522}
-    m_Modifications:
-    - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -828,11 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: -0.125
-=======
-      value: 0
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -844,11 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalRotation.y
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: 1
-=======
-      value: -0
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -872,16 +789,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
 --- !u!4 &1729043676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
   m_PrefabInstance: {fileID: 2104595978}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1905903412 stripped
-=======
---- !u!4 &1628043313 stripped
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
 Transform:
   m_CorrespondingSourceObject: {fileID: 567996624375899214, guid: 4d87ef9b6f05c44c6afebd249b58f0f4, type: 3}
   m_PrefabInstance: {fileID: 1628043312}
@@ -927,22 +840,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_RootOrder: 10
-=======
-  m_RootOrder: 4
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2104595978
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
     m_TransformParent: {fileID: 753909374}
-=======
-    m_TransformParent: {fileID: 452407522}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
     m_Modifications:
     - target: {fileID: 2467113222353864311, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_Name
@@ -950,11 +855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: 0
-=======
-      value: 2
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalScale.x
@@ -970,11 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: 0.288
-=======
-      value: 0.24800014
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -982,11 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: -0.277
-=======
-      value: 0
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -998,11 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalRotation.y
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
       value: 0.7071068
-=======
-      value: -0
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
       objectReference: {fileID: 0}
     - target: {fileID: 2987895133554482381, guid: fbae7e82d550847d385f92c586e0f0d1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1066,11 +955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2502359600959342869}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-=======
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1304,11 +1189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3766984928334765127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_LocalPosition: {x: 0, y: -0.6, z: 0}
-=======
-  m_LocalPosition: {x: 0, y: -0.60000014, z: 0}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalScale: {x: 1, y: 0.10000004, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1554,11 +1435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6933488243456649420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD:Engolfed/Assets/Scenes/3DTest.unity
   m_LocalPosition: {x: 0.014, y: 0, z: -0.048}
-=======
-  m_LocalPosition: {x: -0.22799993, y: 0, z: 0}
->>>>>>> 5d2ef7b90ade0511f3edfea31f31c31269797660:Engolfed/Assets/Scenes/test.unity
   m_LocalScale: {x: 0.1, y: 0.10000004, z: 0.10000004}
   m_Children:
   - {fileID: 6933488243090498628}
