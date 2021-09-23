@@ -106,6 +106,8 @@ public class OnChangePositionTest : MonoBehaviour
         }
 
         update_counter++;
+
+        // TODO: Add GameManager.S.OnHoleStruck(); to update stroke counts
     }
 
     public IEnumerator ScaleHoleTest()
