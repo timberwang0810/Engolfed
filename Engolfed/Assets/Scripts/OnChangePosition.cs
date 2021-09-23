@@ -12,14 +12,15 @@ public class OnChangePosition : MonoBehaviour
     public Collider groundCollider;
     Mesh generatedMesh;
 
-    public float initialScale = 0.5f;
-    public float speed = 3.0f;
+    public float initialScale = 5.0f;
+    public float speed = 1.0f;
     public Vector3 direction;
-    public float drag = 500.0f;
+    public float drag = 1.0f;
 
     const float max_hit_speed = 0.15f;
+    const float obstacleCollisionDelta = 0.05f;
     private Vector3 offset;
-    private Vector3 lastHolePosition;
+    private Vector3 lastHolePosition; 
 
     public GameObject ground;
     int update_counter = 0;
@@ -36,7 +37,7 @@ public class OnChangePosition : MonoBehaviour
         }
         hole2DCollider.transform.position = transform.position;
         hole2DCollider.transform.localScale = new Vector3(1, 1, 1) * initialScale;
-        offset = GameObject.Find("Quad").transform.position;
+        offset = GameObject.Find("Ground").transform.position;
         lastHolePosition = transform.position;
     }
 
@@ -74,7 +75,7 @@ public class OnChangePosition : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
+        //if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
 
         Vector3 pos = transform.position;
         Vector3 groundPos = ground.transform.position;
@@ -114,43 +115,44 @@ public class OnChangePosition : MonoBehaviour
         //    speed = 1.0f;
         //}
 
-        //if (((pos.x - transform.localScale.x / 2) <= groundBoundary[0]) ||
-        //    ((pos.x + transform.localScale.x / 2) >= groundBoundary[1]))
-        //{
-        //    direction.Set(-1 * direction.x, 0, 0);
-        //    if (speed > drag)
-        //    {
-        //        speed *= 0.5f;
-        //    }
-        //}
-        //if (((pos.z - transform.localScale.z / 2) <= groundBoundary[2]) ||
-        //    ((pos.z + transform.localScale.z / 2) >= groundBoundary[3]))
-        //{
-        //    direction.Set(0, 0, -1 * direction.z);
-        //    if (speed > drag)
-        //    {
-        //        speed *= 0.5f;
-        //    }
-        //}
+        if ((((pos.x + direction.x * speed) - transform.localScale.x / 2) <= groundBoundary[0]) ||
+            (((pos.x + direction.x * speed) + transform.localScale.x / 2) >= groundBoundary[1]))
+        {
+            direction.Set(-1 * direction.x, 0, direction.z);
+            speed = speed / 2;
+            if (speed <= drag * Time.deltaTime)
+            {
+                speed = drag * Time.deltaTime + 0.01f;
+            }
+        }
+        if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
+            (((pos.z + direction.z * speed) + transform.localScale.z / 2) >= groundBoundary[3]))
+        {
+            direction.Set(direction.x, 0, -1 * direction.z);
+            speed = speed / 2;
+            if (speed <= drag * Time.deltaTime)
+            {
+                speed = drag * Time.deltaTime + 0.01f;
+            }
+        }
 
-        //if (speed > 0)
-        //{
-        //    if (update_counter % 8 == 0)
-        //    {
-        //        speed -= drag * Time.deltaTime;
-        //        if (speed < 0)
-        //        {
-        //            speed = 0;
-        //        }
-        //    }
-        //    transform.position += direction * speed;
-        //}
+        if (speed > 0)
+        {
+            if (update_counter % 8 == 0)
+            {
+                speed -= drag * Time.deltaTime;
+                if (speed < 0)
+                {
+                    speed = 0;
+                }
+            }
+            transform.position += direction * speed;
+        }
 
-        //update_counter++;
+        update_counter++;
 
         if (Input.GetKey("a"))
         {
-            //Debug.Log("pressed");
             pos.x -= speed * Time.deltaTime;
         }
         if (Input.GetKey("d"))
@@ -175,10 +177,10 @@ public class OnChangePosition : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 dir = Camera.main.gameObject.transform.forward;
-            dir.y = 0;
-            pos += dir * speed * Time.deltaTime;
+            direction.Set(dir.x, 0, dir.z);
+
+            speed = 0.04f;
         }
-        transform.position = pos;
     }
 
     public IEnumerator ScaleHole()
@@ -217,6 +219,36 @@ public class OnChangePosition : MonoBehaviour
         Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + hole2DCollider.bounds.size);
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
+
+        float col_x_len = other.gameObject.GetComponent<Collider>().bounds.extents.x;
+        float col_z_len = other.gameObject.GetComponent<Collider>().bounds.extents.z;
+        Vector3 col_pos = other.gameObject.GetComponent<Collider>().bounds.center;
+
+        float hole_x_len = GetComponent<Collider>().bounds.extents.x; //transform.localScale.x;// 
+        float hole_z_len = GetComponent<Collider>().bounds.extents.z;
+
+        if ((col_x_len > hole_x_len) ||
+           (col_z_len > hole_z_len))
+        {
+            if ((Mathf.Abs((col_pos.x + col_x_len) - (transform.position.x - hole_x_len)) < obstacleCollisionDelta) ||
+                (Mathf.Abs((col_pos.x - col_x_len) - (transform.position.x + hole_x_len)) < obstacleCollisionDelta))
+            {
+                Debug.Log("flip x");
+                direction.Set(-1 * direction.x, 0, direction.z);
+            }
+            if ((Mathf.Abs((col_pos.z + col_z_len) - (transform.position.z - hole_z_len)) < obstacleCollisionDelta) ||
+                (Mathf.Abs((col_pos.z - col_z_len) - (transform.position.z + hole_z_len)) < obstacleCollisionDelta))
+            {
+                Debug.Log("flip z");
+                direction.Set(direction.x, 0, -1 * direction.z);
+            }
+
+            speed = speed / 2;
+            if (speed <= drag * Time.deltaTime)
+            {
+                speed = drag * Time.deltaTime + 0.005f;
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -231,8 +263,9 @@ public class OnChangePosition : MonoBehaviour
         {
             transform.hasChanged = false;
             hole2DCollider.transform.position += new Vector3(transform.position.x - lastHolePosition.x, transform.position.z - lastHolePosition.z, 0);
-            hole2DCollider.transform.localScale = new Vector3(1,1,1) * initialScale;
-            Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
+            hole2DCollider.transform.localScale = transform.localScale * initialScale;
+            hole2DCollider.transform.localScale.Set(hole2DCollider.transform.localScale.x, hole2DCollider.transform.localScale.y*10, hole2DCollider.transform.localScale.z);
+            //Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
             MakeHole2D();
             Make3DMeshCollider();
             lastHolePosition = transform.position;
@@ -251,8 +284,8 @@ public class OnChangePosition : MonoBehaviour
         {
             msg += new Vector3((float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000)).ToString() + ", ";
         }
-        Debug.Log(msg);
-        Debug.Log("hole 2d collider: " + hole2DCollider.bounds.size);
+        //Debug.Log(msg);
+        //Debug.Log("hole 2d collider: " + hole2DCollider.bounds.size);
         ground2DCollider.pathCount = 2;
         ground2DCollider.SetPath(1, PointPositions);
         msg = "newly drawn: ";
@@ -260,8 +293,8 @@ public class OnChangePosition : MonoBehaviour
         {
             msg += v.ToString() + ", ";
         }
-        Debug.Log(msg);
-        Debug.Log("ground2d collider: " + ground2DCollider.bounds.size);
+        //Debug.Log(msg);
+        //Debug.Log("ground2d collider: " + ground2DCollider.bounds.size);
 
     }
 

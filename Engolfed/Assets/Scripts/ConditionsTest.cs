@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Conditions : MonoBehaviour
+public class ConditionsTest : MonoBehaviour
 {
     public int Points = 0;
-    public OnChangePosition holeScript;
+    public OnChangePositionTest holeScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +19,7 @@ public class Conditions : MonoBehaviour
 
         if (Points % 2 == 0)
         {
-            StartCoroutine(holeScript.ScaleHole());
+            StartCoroutine(holeScript.ScaleHoleTest());
         }
     }
 }

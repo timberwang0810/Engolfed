@@ -11,7 +11,7 @@ public class OnChangePositionTest : MonoBehaviour
     public Collider groundCollider;
     Mesh generatedMesh;
 
-    public float initialScale = 0.5f;
+    public float initialScale = 5.0f;
     public float speed = 0.0f;
     public Vector3 direction;
     public float drag = 1.0f;
@@ -112,6 +112,7 @@ public class OnChangePositionTest : MonoBehaviour
     {
         Vector3 startScale = transform.localScale;
         Vector3 endScale = startScale * 2;
+        hole2DCollider.transform.localScale = hole2DCollider.transform.localScale * 2;
 
         float t = 0;
         while(t <= 0.4)
@@ -156,6 +157,7 @@ public class OnChangePositionTest : MonoBehaviour
             transform.hasChanged = false;
             hole2DCollider.transform.position = new Vector2(transform.position.x, transform.position.z);
             hole2DCollider.transform.localScale = transform.localScale * initialScale;
+            Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
             MakeHole2DTest();
             Make3DMeshColliderTest();
         }
