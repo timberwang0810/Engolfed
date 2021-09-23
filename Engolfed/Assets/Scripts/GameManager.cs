@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     // Game Variables
     private int numBalls;
+    private int numStrokes;
 
     private void Awake()
     {
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameState = GameState.menu;
     }
 
     // Update is called once per frame
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject go in gameScene)
         {
             Debug.Log(go.gameObject.name);
+            if (go.CompareTag("Ball")) OnBallSpawned();
             go.SetActive(true);
             go.transform.position += plane.center;
         }
@@ -103,6 +105,15 @@ public class GameManager : MonoBehaviour
         if (numBalls <= 0) OnGameWon();
     }
 
+    public void OnHoleStruck()
+    {
+        numStrokes++;
+    }
+
+    public int GetNumStrokes()
+    {
+        return numStrokes;
+    }
     private void OnGameWon()
     {
         gameState = GameState.oops;

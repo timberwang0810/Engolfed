@@ -11,6 +11,7 @@ public class OnChangePosition : MonoBehaviour
     public MeshCollider generatedMeshCollider;
     public Collider groundCollider;
     Mesh generatedMesh;
+    public SoundManager soundManager;
 
     public float initialScale = 5.0f;
     public float speed = 1.0f;
@@ -24,6 +25,7 @@ public class OnChangePosition : MonoBehaviour
 
     public GameObject ground;
     int update_counter = 0;
+
 
     private void Start()
     {
@@ -122,7 +124,7 @@ public class OnChangePosition : MonoBehaviour
             speed = speed / 2;
             if (speed <= drag * Time.deltaTime)
             {
-                speed = drag * Time.deltaTime + 0.01f;
+                speed = drag * Time.deltaTime + 0.005f;
             }
         }
         if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
@@ -132,7 +134,7 @@ public class OnChangePosition : MonoBehaviour
             speed = speed / 2;
             if (speed <= drag * Time.deltaTime)
             {
-                speed = drag * Time.deltaTime + 0.01f;
+                speed = drag * Time.deltaTime + 0.005f;
             }
         }
 
@@ -180,6 +182,8 @@ public class OnChangePosition : MonoBehaviour
             direction.Set(dir.x, 0, dir.z);
 
             speed = 0.04f;
+
+            soundManager.MakeWooshSound();
         }
     }
 
@@ -235,12 +239,14 @@ public class OnChangePosition : MonoBehaviour
             {
                 Debug.Log("flip x");
                 direction.Set(-1 * direction.x, 0, direction.z);
+                soundManager.MakeBounceSound();
             }
             if ((Mathf.Abs((col_pos.z + col_z_len) - (transform.position.z - hole_z_len)) < obstacleCollisionDelta) ||
                 (Mathf.Abs((col_pos.z - col_z_len) - (transform.position.z + hole_z_len)) < obstacleCollisionDelta))
             {
                 Debug.Log("flip z");
                 direction.Set(direction.x, 0, -1 * direction.z);
+                soundManager.MakeBounceSound();
             }
 
             speed = speed / 2;
@@ -264,7 +270,7 @@ public class OnChangePosition : MonoBehaviour
             transform.hasChanged = false;
             hole2DCollider.transform.position += new Vector3(transform.position.x - lastHolePosition.x, transform.position.z - lastHolePosition.z, 0);
             hole2DCollider.transform.localScale = transform.localScale * initialScale;
-            hole2DCollider.transform.localScale.Set(hole2DCollider.transform.localScale.x, hole2DCollider.transform.localScale.y*10, hole2DCollider.transform.localScale.z);
+            //hole2DCollider.transform.localScale.Set(hole2DCollider.transform.localScale.x, hole2DCollider.transform.localScale.y*10, hole2DCollider.transform.localScale.z);
             //Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
             MakeHole2D();
             Make3DMeshCollider();

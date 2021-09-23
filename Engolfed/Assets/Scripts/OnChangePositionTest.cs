@@ -23,6 +23,8 @@ public class OnChangePositionTest : MonoBehaviour
 
     int update_counter = 0;
 
+    public SoundManager soundManager;
+
 
 
     private void Start()
@@ -80,6 +82,7 @@ public class OnChangePositionTest : MonoBehaviour
             {
                 speed = drag * Time.deltaTime + 0.01f;
             }
+            soundManager.MakeBounceSound();
         }
         if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
             (((pos.z + direction.z * speed) + transform.localScale.z / 2) >= groundBoundary[3]))
@@ -90,6 +93,7 @@ public class OnChangePositionTest : MonoBehaviour
             {
                 speed = drag * Time.deltaTime + 0.01f;
             }
+            soundManager.MakeBounceSound();
         }
 
         if (speed > 0)
@@ -106,6 +110,8 @@ public class OnChangePositionTest : MonoBehaviour
         }
 
         update_counter++;
+
+        // TODO: Add GameManager.S.OnHoleStruck(); to update stroke counts
     }
 
     public IEnumerator ScaleHoleTest()
