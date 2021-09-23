@@ -84,39 +84,6 @@ public class OnChangePosition : MonoBehaviour
         Vector3 groundScale = ground.transform.localScale / 2;
         float[] groundBoundary = new float[] { groundPos.x - groundScale.x, groundPos.x + groundScale.x, groundPos.z - groundScale.z, groundPos.z + groundScale.z };
 
-        //if (Input.GetKey("a"))
-        //{
-        //    direction.Set(-1, 0, 0);
-        //    speed = max_hit_speed;
-
-        //}
-        //if (Input.GetKey("d"))
-        //{
-        //    direction.Set(1, 0, 0);
-        //    speed = max_hit_speed;
-        //}
-        //if (Input.GetKey("s"))
-        //{
-        //    direction.Set(0, 0, -1);
-        //    speed = max_hit_speed;
-        //}
-        //if (Input.GetKey("w"))
-        //{
-        //    direction.Set(0, 0, 1);
-        //    speed = max_hit_speed;
-        //}
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector3 dir = Camera.main.gameObject.transform.forward;
-        //    direction.Set(dir.x, 0, dir.z);
-        //    speed = max_hit_speed;
-        //}
-
-        //if (Input.GetKey("r"))
-        //{
-        //    speed = 1.0f;
-        //}
-
         if ((((pos.x + direction.x * speed) - transform.localScale.x / 2) <= groundBoundary[0]) ||
             (((pos.x + direction.x * speed) + transform.localScale.x / 2) >= groundBoundary[1]))
         {
@@ -126,6 +93,7 @@ public class OnChangePosition : MonoBehaviour
             {
                 speed = drag * Time.deltaTime + 0.005f;
             }
+            soundManager.MakeBounceSound();
         }
         if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
             (((pos.z + direction.z * speed) + transform.localScale.z / 2) >= groundBoundary[3]))
@@ -136,6 +104,7 @@ public class OnChangePosition : MonoBehaviour
             {
                 speed = drag * Time.deltaTime + 0.005f;
             }
+            soundManager.MakeBounceSound();
         }
 
         if (speed > 0)
@@ -211,23 +180,6 @@ public class OnChangePosition : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision");
-        if (collision.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
-        {
-            speed = 0.0f;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "house")  // or if(gameObject.CompareTag("YourWallTag"))
-        {
-            speed = 3.0f;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + hole2DCollider.bounds.size);
@@ -280,8 +232,7 @@ public class OnChangePosition : MonoBehaviour
             transform.hasChanged = false;
             hole2DCollider.transform.position += new Vector3(transform.position.x - lastHolePosition.x, transform.position.z - lastHolePosition.z, 0);
             hole2DCollider.transform.localScale = transform.localScale * initialScale;
-            //hole2DCollider.transform.localScale.Set(hole2DCollider.transform.localScale.x, hole2DCollider.transform.localScale.y*10, hole2DCollider.transform.localScale.z);
-            //Debug.Log("hole 2d at: " + hole2DCollider.transform.position);
+
             MakeHole2D();
             Make3DMeshCollider();
             lastHolePosition = transform.position;
@@ -300,8 +251,7 @@ public class OnChangePosition : MonoBehaviour
         {
             msg += new Vector3((float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000)).ToString() + ", ";
         }
-        //Debug.Log(msg);
-        //Debug.Log("hole 2d collider: " + hole2DCollider.bounds.size);
+
         ground2DCollider.pathCount = 2;
         ground2DCollider.SetPath(1, PointPositions);
         msg = "newly drawn: ";
@@ -309,9 +259,6 @@ public class OnChangePosition : MonoBehaviour
         {
             msg += v.ToString() + ", ";
         }
-        //Debug.Log(msg);
-        //Debug.Log("ground2d collider: " + ground2DCollider.bounds.size);
-
     }
 
     private void Make3DMeshCollider()
@@ -321,7 +268,6 @@ public class OnChangePosition : MonoBehaviour
             Destroy(generatedMesh);
         }
         generatedMesh = ground2DCollider.CreateMesh(false, false);
-        //Debug.Log("generated mesh bound size: " + generatedMesh.bounds.size);
         generatedMeshCollider.sharedMesh = generatedMesh;
     }
 }

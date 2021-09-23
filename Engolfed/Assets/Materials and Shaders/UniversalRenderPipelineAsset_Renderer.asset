@@ -52,11 +52,11 @@ MonoBehaviour:
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: 6185679566761427618}
+  - {fileID: 2874363707502419481}
   - {fileID: -5732791261473258865}
   - {fileID: 5041369976027103111}
   - {fileID: 7911383076111978570}
-  m_RendererFeatureMap: a20235f7caf2d7558f426ca8b80871b0873f6a6a488bf6454a10b1cdfde0ca6d
+  m_RendererFeatureMap: 19def41c90cae3278f426ca8b80871b0873f6a6a488bf6454a10b1cdfde0ca6d
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -83,6 +83,19 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
+--- !u!114 &2874363707502419481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae4d376c05df421b98c5b39b25b0d29, type: 3}
+  m_Name: NewARBackgroundRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
 --- !u!114 &5041369976027103111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,19 +135,6 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
---- !u!114 &6185679566761427618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae4d376c05df421b98c5b39b25b0d29, type: 3}
-  m_Name: NewARBackgroundRendererFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
 --- !u!114 &7911383076111978570
 MonoBehaviour:
   m_ObjectHideFlags: 0
