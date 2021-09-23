@@ -34,5 +34,6 @@ public class UIManager : MonoBehaviour
     {
         menuPanel.SetActive(false);
         if (planeManager) planeManager.enabled = true;
+        Debug.Log("go!");
     }
 }
