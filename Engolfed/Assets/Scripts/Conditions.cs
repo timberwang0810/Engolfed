@@ -9,6 +9,10 @@ public class Conditions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Ball"))
+        {
+            GameManager.S.OnBallCaptured();
+        }
         Destroy(other.gameObject);
         GrowHole();
     }

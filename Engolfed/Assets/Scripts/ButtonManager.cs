@@ -8,4 +8,10 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("YASSSSS");
     }
+
+    public void btn_StartGame()
+    {
+        UIManager.S.OnGameStart();
+        if (GameManager.S) GameManager.S.gameState = GameManager.GameState.getReady;
+    }
 }

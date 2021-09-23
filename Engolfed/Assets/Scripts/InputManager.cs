@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.S.gameState != GameManager.GameState.getReady) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = AR_Camera.ScreenPointToRay(Input.mousePosition);
