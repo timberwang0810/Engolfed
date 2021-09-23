@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip winSound;
     public AudioClip bounceSound;
     public AudioClip wooshSound;
+    public AudioClip nomSound;
 
     private AudioSource audio;
     private void Awake()
@@ -41,5 +42,10 @@ public class SoundManager : MonoBehaviour
     public void MakeWooshSound()
     {
         audio.PlayOneShot(wooshSound);
+    }
+
+    public void MakeNomSound()
+    {
+        audio.PlayOneShot(nomSound);
     }
 }

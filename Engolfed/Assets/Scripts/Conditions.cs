@@ -6,6 +6,7 @@ public class Conditions : MonoBehaviour
 {
     public int Points = 0;
     public OnChangePosition holeScript;
+    public SoundManager soundManager;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,8 @@ public class Conditions : MonoBehaviour
     private void GrowHole()
     {
         Points++;
+
+        soundManager.MakeNomSound();
 
         if (Points % 2 == 0)
         {
