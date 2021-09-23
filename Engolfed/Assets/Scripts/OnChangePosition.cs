@@ -11,8 +11,8 @@ public class OnChangePosition : MonoBehaviour
     public MeshCollider generatedMeshCollider;
     public Collider groundCollider;
     Mesh generatedMesh;
-    public SoundManager soundManager;
 
+    public ARRaycastManager raycastManager;
     public float initialScale = 5.0f;
     public float speed = 1.0f;
     public Vector3 direction;
@@ -176,14 +176,24 @@ public class OnChangePosition : MonoBehaviour
         //    speed = 3.0f;
         //}
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && speed <= 0)
         {
-            Vector3 dir = Camera.main.gameObject.transform.forward;
-            direction.Set(dir.x, 0, dir.z);
+            var touch = Input.GetTouch(0);
+            List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            {
+                if (raycastHit.collider.gameObject.CompareTag("Hole"))
+                {
+                    Vector3 dir = Camera.main.gameObject.transform.forward;
+                    direction.Set(dir.x, 0, dir.z);
 
-            speed = 0.04f;
+                    speed = 0.04f;
 
-            soundManager.MakeWooshSound();
+                    SoundManager.S.MakeWooshSound();
+                    GameManager.S.OnHoleStruck();
+                }
+            }
         }
     }
 
@@ -239,14 +249,14 @@ public class OnChangePosition : MonoBehaviour
             {
                 Debug.Log("flip x");
                 direction.Set(-1 * direction.x, 0, direction.z);
-                soundManager.MakeBounceSound();
+                SoundManager.S.MakeBounceSound();
             }
             if ((Mathf.Abs((col_pos.z + col_z_len) - (transform.position.z - hole_z_len)) < obstacleCollisionDelta) ||
                 (Mathf.Abs((col_pos.z - col_z_len) - (transform.position.z + hole_z_len)) < obstacleCollisionDelta))
             {
                 Debug.Log("flip z");
                 direction.Set(direction.x, 0, -1 * direction.z);
-                soundManager.MakeBounceSound();
+                SoundManager.S.MakeBounceSound();
             }
 
             speed = speed / 2;

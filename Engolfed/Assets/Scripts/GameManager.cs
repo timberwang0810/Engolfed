@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
     public void OnHoleStruck()
     {
         numStrokes++;
+        UIManager.S.UpdateStrokeCount(numStrokes);
     }
 
     public int GetNumStrokes()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -14,4 +15,10 @@ public class ButtonManager : MonoBehaviour
         UIManager.S.OnGameStart();
         if (GameManager.S) GameManager.S.gameState = GameManager.GameState.getReady;
     }
+
+    public void btn_RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
+
