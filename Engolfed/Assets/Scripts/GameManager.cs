@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnGameWon()
     {
-        gameState = GameState.oops;
+        gameState = GameState.gameOver;
+        SoundManager.S.MakeYaySound();
     }
 }

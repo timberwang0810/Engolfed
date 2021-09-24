@@ -19,7 +19,7 @@ public class OnChangePosition : MonoBehaviour
     public float drag = 1.0f;
 
     const float max_hit_speed = 0.15f;
-    const float obstacleCollisionDelta = 0.05f;
+    const float obstacleCollisionDelta = 0.04f;
     private Vector3 offset;
     private Vector3 lastHolePosition; 
 
@@ -91,9 +91,9 @@ public class OnChangePosition : MonoBehaviour
             speed = speed / 2;
             if (speed <= drag * Time.deltaTime)
             {
-                speed = drag * Time.deltaTime + 0.005f;
+                speed = drag * Time.deltaTime + 0.001f;
             }
-            soundManager.MakeBounceSound();
+            SoundManager.S.MakeBounceSound();
         }
         if ((((pos.z + direction.z * speed) - transform.localScale.z / 2) <= groundBoundary[2]) ||
             (((pos.z + direction.z * speed) + transform.localScale.z / 2) >= groundBoundary[3]))
@@ -102,9 +102,9 @@ public class OnChangePosition : MonoBehaviour
             speed = speed / 2;
             if (speed <= drag * Time.deltaTime)
             {
-                speed = drag * Time.deltaTime + 0.005f;
+                speed = drag * Time.deltaTime + 0.001f;
             }
-            soundManager.MakeBounceSound();
+            SoundManager.S.MakeBounceSound();
         }
 
         if (speed > 0)
@@ -193,8 +193,8 @@ public class OnChangePosition : MonoBehaviour
         float hole_x_len = GetComponent<Collider>().bounds.extents.x; //transform.localScale.x;// 
         float hole_z_len = GetComponent<Collider>().bounds.extents.z;
 
-        if ((col_x_len > hole_x_len) ||
-           (col_z_len > hole_z_len))
+        if ((col_x_len + obstacleCollisionDelta > hole_x_len) ||
+           (col_z_len + obstacleCollisionDelta > hole_z_len))
         {
             if ((Mathf.Abs((col_pos.x + col_x_len) - (transform.position.x - hole_x_len)) < obstacleCollisionDelta) ||
                 (Mathf.Abs((col_pos.x - col_x_len) - (transform.position.x + hole_x_len)) < obstacleCollisionDelta))
@@ -214,7 +214,7 @@ public class OnChangePosition : MonoBehaviour
             speed = speed / 2;
             if (speed <= drag * Time.deltaTime)
             {
-                speed = drag * Time.deltaTime + 0.005f;
+                speed = drag * Time.deltaTime + 0.001f;
             }
         }
     }
@@ -246,19 +246,19 @@ public class OnChangePosition : MonoBehaviour
         {
             PointPositions[i] = hole2DCollider.transform.TransformPoint(PointPositions[i])-offset;
         }
-        string msg = "";
+        /*string msg = "";
         foreach (Vector3 v in PointPositions)
         {
             msg += new Vector3((float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000), (float)(Mathf.Round(v.x * 100.000f) / 100.000)).ToString() + ", ";
-        }
+        }*/
 
         ground2DCollider.pathCount = 2;
         ground2DCollider.SetPath(1, PointPositions);
-        msg = "newly drawn: ";
+        /*msg = "newly drawn: ";
         foreach (Vector3 v in ground2DCollider.GetPath(1))
         {
             msg += v.ToString() + ", ";
-        }
+        }*/
     }
 
     private void Make3DMeshCollider()

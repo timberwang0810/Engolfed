@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
         if (planeManager) planeManager.enabled = true;
         Debug.Log("go!");
         inGameUI.SetActive(true);
+        SoundManager.S.MakeStartSound();
     }
 
     public void UpdateStrokeCount(int stroke)

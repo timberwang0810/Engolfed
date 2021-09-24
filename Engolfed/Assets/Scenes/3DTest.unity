@@ -308,6 +308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winSound: {fileID: 8300000, guid: 137c7a2f3878d40d78a1566015d62f55, type: 3}
   bounceSound: {fileID: 8300000, guid: afd87c75d40d446d3a35903a09aff411, type: 3}
+  wooshSound: {fileID: 0}
+  nomSound: {fileID: 0}
 --- !u!4 &258619328
 Transform:
   m_ObjectHideFlags: 0
@@ -699,6 +701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1158676103}
+  inGameUI: {fileID: 0}
+  strokeCount: {fileID: 0}
   planeManager: {fileID: 0}
 --- !u!4 &980056764
 Transform:
@@ -1972,8 +1976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b98e5f656a842f28fa6e338a31def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 0
-  holeScript: {fileID: 6933488243456649421}
 --- !u!60 &4034868133473955746
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2287,7 +2289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6933488243456649420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.221, y: 0, z: -0.327}
   m_LocalScale: {x: 0.1, y: 0.10000004, z: 0.10000004}
   m_Children:
   - {fileID: 6933488243090498628}

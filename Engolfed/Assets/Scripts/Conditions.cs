@@ -6,27 +6,30 @@ public class Conditions : MonoBehaviour
 {
     public int Points = 0;
     public OnChangePosition holeScript;
-    public SoundManager soundManager;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
+            Destroy(other.gameObject);
+            SoundManager.S.MakeWinSound();
             GameManager.S.OnBallCaptured();
         }
-        Destroy(other.gameObject);
-        GrowHole();
+        else
+        {
+            Destroy(other.gameObject);
+            GrowHole();
+        }
     }
 
     private void GrowHole()
     {
         Points++;
 
-        soundManager.MakeNomSound();
-
         if (Points % 2 == 0)
         {
             StartCoroutine(holeScript.ScaleHole());
         }
+
+        SoundManager.S.MakeNomSound();
     }
 }
