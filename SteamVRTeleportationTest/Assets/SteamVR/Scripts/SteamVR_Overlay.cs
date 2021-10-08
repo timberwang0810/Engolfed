@@ -36,6 +36,7 @@ namespace Valve.VR
 
         void OnEnable()
         {
+            Debug.Log("yooo!");
             var overlay = OpenVR.Overlay;
             if (overlay != null)
             {
@@ -53,6 +54,7 @@ namespace Valve.VR
 
         void OnDisable()
         {
+            Debug.Log("sad");
             if (handle != OpenVR.k_ulOverlayHandleInvalid)
             {
                 var overlay = OpenVR.Overlay;

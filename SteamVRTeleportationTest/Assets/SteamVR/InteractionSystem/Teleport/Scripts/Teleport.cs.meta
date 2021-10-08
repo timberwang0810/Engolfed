@@ -1,11 +1,36 @@
 fileFormatVersion: 2
 guid: f260935093f73f241bfaa1578e5e5506
-timeCreated: 1544852190
-licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
-  executionOrder: -32000
+  defaultReferences:
+  - areaVisibleMaterial: {instanceID: 0}
+  - areaLockedMaterial: {instanceID: 0}
+  - areaHighlightedMaterial: {instanceID: 0}
+  - pointVisibleMaterial: {instanceID: 0}
+  - pointLockedMaterial: {instanceID: 0}
+  - pointHighlightedMaterial: {instanceID: 0}
+  - destinationReticleTransform: {instanceID: 0}
+  - invalidReticleTransform: {instanceID: 0}
+  - playAreaPreviewCorner: {instanceID: 0}
+  - playAreaPreviewSide: {instanceID: 0}
+  - onActivateObjectTransform: {instanceID: 0}
+  - onDeactivateObjectTransform: {instanceID: 0}
+  - pointerAudioSource: {instanceID: 0}
+  - loopingAudioSource: {instanceID: 0}
+  - headAudioSource: {instanceID: 0}
+  - reticleAudioSource: {instanceID: 0}
+  - teleportSound: {instanceID: 0}
+  - pointerStartSound: {instanceID: 0}
+  - pointerLoopSound: {instanceID: 0}
+  - pointerStopSound: {instanceID: 0}
+  - goodHighlightSound: {instanceID: 0}
+  - badHighlightSound: {instanceID: 0}
+  - offsetReticleTransform: {instanceID: 0}
+  - floorDebugSphere: {instanceID: 0}
+  - floorDebugLine: {instanceID: 0}
+  - cameraOverlay: {instanceID: 0}
+  executionOrder: 0
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

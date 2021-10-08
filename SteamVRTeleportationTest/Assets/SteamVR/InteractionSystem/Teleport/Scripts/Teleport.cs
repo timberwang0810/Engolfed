@@ -110,6 +110,10 @@ namespace Valve.VR.InteractionSystem
 		private Vector3 startingFeetOffset = Vector3.zero;
 		private bool movedFeetFarEnough = false;
 
+		// Custom
+		//private Animator maskAnimator;
+		public SteamVR_Overlay cameraOverlay;
+
 		SteamVR_Events.Action chaperoneInfoInitializedAction;
 
 		// Events
@@ -842,8 +846,8 @@ namespace Valve.VR.InteractionSystem
 				Teleport.ChangeScene.Send( currentFadeTime );
 			}
 
-			SteamVR_Fade.Start( Color.clear, 0 );
-			SteamVR_Fade.Start( Color.black, currentFadeTime );
+			//SteamVR_Fade.Start( Color.clear, 0 );
+			//SteamVR_Fade.Start( Color.black, currentFadeTime );
 
 			headAudioSource.transform.SetParent( player.hmdTransform );
 			headAudioSource.transform.localPosition = Vector3.zero;
@@ -860,7 +864,7 @@ namespace Valve.VR.InteractionSystem
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
 
-			SteamVR_Fade.Start( Color.clear, currentFadeTime );
+			//SteamVR_Fade.Start( Color.clear, currentFadeTime );
 
 			TeleportPoint teleportPoint = teleportingToMarker as TeleportPoint;
 			Vector3 teleportPosition = pointedAtPosition;
@@ -894,9 +898,13 @@ namespace Valve.VR.InteractionSystem
 			if ( teleportingToMarker.ShouldMovePlayer() )
 			{
 				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
-				player.trackingOriginTransform.position = teleportPosition + playerFeetOffset;
 
-                if (player.leftHand.currentAttachedObjectInfo.HasValue)
+				Vector3 startPoint = player.trackingOriginTransform.position;
+				Vector3 endPoint = teleportPosition + playerFeetOffset;
+
+				StartCoroutine(DoDash(startPoint, endPoint));
+
+				if (player.leftHand.currentAttachedObjectInfo.HasValue)
                     player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
                 if (player.rightHand.currentAttachedObjectInfo.HasValue)
                     player.rightHand.ResetAttachedTransform(player.rightHand.currentAttachedObjectInfo.Value);
@@ -907,6 +915,35 @@ namespace Valve.VR.InteractionSystem
 			}
 
 			Teleport.Player.Send( pointedAtTeleportMarker );
+		}
+
+		private IEnumerator DoDash(Vector3 startPoint, Vector3 endPoint)
+		{
+			//if (maskAnimator != null)
+			//	maskAnimator.SetBool("Mask", true);
+
+			cameraOverlay.gameObject.SetActive(true);
+
+			yield return new WaitForSeconds(0.1f);
+
+			float elapsed = 0f;
+			float dashTime = 0.2f;
+
+			while (elapsed < dashTime)
+			{
+				elapsed += Time.deltaTime;
+				float elapsedPct = elapsed / dashTime;
+
+				Debug.Log(elapsedPct);
+
+				player.trackingOriginTransform.position = Vector3.Lerp(startPoint, endPoint, elapsedPct);
+				yield return null;
+			}
+
+			//if (maskAnimator != null)
+			//	maskAnimator.SetBool("Mask", false);
+
+			cameraOverlay.gameObject.SetActive(false);
 		}
 
 
