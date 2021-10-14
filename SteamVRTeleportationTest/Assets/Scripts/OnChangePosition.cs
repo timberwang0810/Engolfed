@@ -26,12 +26,15 @@ public class OnChangePosition : MonoBehaviour
 
     [Header("Player Detection")]
     public GameObject player;
+    public GameObject ball;
     public float sightRadius;
     public float sightAngle;
     public float maxPatrolDelayTime;
     public float patrolSpeed;
     public float chaseSpeed;
+    public float spookCooldown;
     private float currDelay;
+    private float currSpookCooldown;
    
     private List<Transform> destinations;
     private int currDestination;
@@ -39,14 +42,14 @@ public class OnChangePosition : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //GameObject[] allGameObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
-        //foreach (var go in allGameObjects)
-        //{
-        //    if (go.layer == LayerMask.NameToLayer("Obstacles") && go.GetComponent<Collider>() != null)
-        //    {
-        //        Physics.IgnoreCollision(go.GetComponent<Collider>(), generatedMeshCollider, true);
-        //    }
-        //}
+        GameObject[] allGameObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
+        foreach (var go in allGameObjects)
+        {
+            if (go.layer == LayerMask.NameToLayer("Obstacles") && go.GetComponent<Collider>() != null)
+            {
+                Physics.IgnoreCollision(go.GetComponent<Collider>(), generatedMeshCollider, true);
+            }
+        }
         hole2DCollider.transform.position = new Vector3(agent.transform.position.x, agent.transform.position.z, 0);
         hole2DCollider.transform.localScale = new Vector3(1, 1, 1) * initialScale;
         lastHolePosition = agent.transform.position;
@@ -60,11 +63,12 @@ public class OnChangePosition : MonoBehaviour
 
         agent.speed = patrolSpeed;
         currDelay = maxPatrolDelayTime;
+        currSpookCooldown = spookCooldown;
     }
 
     private void Update()
     {
-        //if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
+        if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
 
         //Vector3 pos = transform.position;
         //Vector3 groundPos = ground.transform.position;
@@ -130,16 +134,22 @@ public class OnChangePosition : MonoBehaviour
 
         RaycastHit hit;
         if (currDelay <= maxPatrolDelayTime + 1) currDelay += Time.deltaTime;
+        if (currSpookCooldown <= spookCooldown + 1) currSpookCooldown += Time.deltaTime;
         //Debug.DrawLine(agent.transform.position, player.transform.position, Color.white);
-        Debug.DrawRay(agent.transform.position, player.transform.position - agent.transform.position, Color.white);
-        Debug.Log(Vector3.Distance(agent.transform.position, player.transform.position));
+        //Debug.DrawRay(agent.transform.position, player.transform.position - agent.transform.position, Color.white);
+        //Debug.Log(Vector3.Distance(agent.transform.position, player.transform.position));
 
-        if (Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
-            && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle
-            && Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit, sightRadius))
+        if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit, sightRadius * 2))
         {
-            Debug.Log("detected something");
-            if (hit.collider.CompareTag("Player"))
+            //Debug.Log("detected something");
+            if (currSpookCooldown > spookCooldown)
+            {
+                //TODO: SoundManager.S.MakeSpookySound; 
+            }
+            currSpookCooldown = 0;
+            if (hit.collider.CompareTag("Player") 
+                && Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
+                && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
             {
                 agent.speed = chaseSpeed;
                 agent.destination = player.transform.position;
@@ -176,8 +186,11 @@ public class OnChangePosition : MonoBehaviour
             }
         }
 
-
-
+        if (Vector3.Distance(agent.transform.position, 
+            new Vector3(player.transform.position.x, agent.transform.position.y, player.transform.position.z)) <= 0.1f)
+        {
+            GameManager.S.OnGameLost();
+        }
     }
 
     public IEnumerator ScaleHole()
@@ -196,7 +209,7 @@ public class OnChangePosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + hole2DCollider.bounds.size);
+        //Debug.Log("Entered size:" + other.bounds.size + ", hole size: " + hole2DCollider.bounds.size);
         Physics.IgnoreCollision(other, groundCollider, true);
         Physics.IgnoreCollision(other, generatedMeshCollider, false);
 
@@ -241,6 +254,8 @@ public class OnChangePosition : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.S && GameManager.S.gameState != GameManager.GameState.playing) return;
+
         if (agent.transform.hasChanged == true)
         {
             agent.transform.hasChanged = false;
