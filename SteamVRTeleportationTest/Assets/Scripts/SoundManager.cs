@@ -12,8 +12,15 @@ public class SoundManager : MonoBehaviour
     public AudioClip nomSound;
     public AudioClip yaySound;
     public AudioClip startSound;
+    public AudioClip holeApproachSound;
+    public AudioClip bgm_music;
+    public AudioClip charge_music;
 
     private AudioSource audio;
+
+    public AudioSource bgm;
+
+
     private void Awake()
     {
         if (SoundManager.S)
@@ -59,5 +66,22 @@ public class SoundManager : MonoBehaviour
     public void MakeStartSound()
     {
         audio.PlayOneShot(startSound);
+    }
+
+    public void MakeHoleApproachSound()
+    {
+        audio.PlayOneShot(holeApproachSound);
+    }
+
+    public void PlayChargeMusic()
+    {
+        bgm.clip = charge_music;
+        bgm.Play();
+    }
+
+    public void PlayBGM()
+    {
+        bgm.clip = bgm_music;
+        bgm.Play();
     }
 }

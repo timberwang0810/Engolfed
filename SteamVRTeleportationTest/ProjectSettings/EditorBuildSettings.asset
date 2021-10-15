@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Hole1.unity
+    guid: 898122898bfc03649aac7ed406ccebc2
+  - enabled: 1
+    path: Assets/Scenes/Funhouse.unity
+    guid: c6214c73158a26048810de9b14f7e9d0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

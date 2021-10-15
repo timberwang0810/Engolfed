@@ -144,25 +144,27 @@ public class OnChangePosition : MonoBehaviour
             //Debug.Log("detected something");
             if (currSpookCooldown > spookCooldown)
             {
-                //TODO: SoundManager.S.MakeSpookySound; 
+                SoundManager.S.MakeHoleApproachSound(); 
             }
             currSpookCooldown = 0;
             if (hit.collider.CompareTag("Player") 
                 && Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
                 && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
             {
+                if (agent.speed == patrolSpeed) SoundManager.S.PlayChargeMusic();
                 agent.speed = chaseSpeed;
                 agent.destination = player.transform.position;
                 currDelay = 0;
             }
             else
             {
+                if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
                 agent.speed = patrolSpeed;
                 if (currDelay > maxPatrolDelayTime)
                 {
                     agent.destination = destinations[currDestination].position;
                     //Debug.Log(Vector3.Distance(agent.transform.position, destinations[currDestination].position));
-                    if (Vector3.Distance(agent.transform.position, destinations[currDestination].position) <= 0.1f)
+                    if (Vector3.Distance(agent.transform.position, destinations[currDestination].position) <= 0.2f)
                     {
                         currDestination = Random.Range(0, destinations.Count);
                         currDelay = 0;
@@ -173,6 +175,7 @@ public class OnChangePosition : MonoBehaviour
 
         else
         {
+            if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
             agent.speed = patrolSpeed;
             if (currDelay > maxPatrolDelayTime)
             {
