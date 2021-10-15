@@ -38,6 +38,7 @@ public class OnChangePosition : MonoBehaviour
    
     private List<Transform> destinations;
     private int currDestination;
+    private bool didHitPlayer;
 
     private void Start()
     {
@@ -134,7 +135,7 @@ public class OnChangePosition : MonoBehaviour
 
         RaycastHit hit;
         if (currDelay <= maxPatrolDelayTime + 1) currDelay += Time.deltaTime;
-        if (currSpookCooldown <= spookCooldown + 1) currSpookCooldown += Time.deltaTime;
+        //if (currSpookCooldown <= spookCooldown + 1) currSpookCooldown += Time.deltaTime;
         //Debug.DrawLine(agent.transform.position, player.transform.position, Color.white);
         //Debug.DrawRay(agent.transform.position, player.transform.position - agent.transform.position, Color.white);
         //Debug.Log(Vector3.Distance(agent.transform.position, player.transform.position));
@@ -142,15 +143,16 @@ public class OnChangePosition : MonoBehaviour
         if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit, sightRadius * 2))
         {
             //Debug.Log("detected something");
-            if (currSpookCooldown > spookCooldown)
+            if (hit.collider.CompareTag("Player") && !didHitPlayer)
             {
-                SoundManager.S.MakeHoleApproachSound(); 
+                SoundManager.S.MakeHoleApproachSound();
+                didHitPlayer = true;
             }
-            currSpookCooldown = 0;
             if (hit.collider.CompareTag("Player") 
                 && Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
                 && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
             {
+                didHitPlayer = true;
                 if (agent.speed == patrolSpeed) SoundManager.S.PlayChargeMusic();
                 agent.speed = chaseSpeed;
                 agent.destination = player.transform.position;
@@ -158,6 +160,7 @@ public class OnChangePosition : MonoBehaviour
             }
             else
             {
+                didHitPlayer = false;
                 if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
                 agent.speed = patrolSpeed;
                 if (currDelay > maxPatrolDelayTime)
@@ -175,6 +178,7 @@ public class OnChangePosition : MonoBehaviour
 
         else
         {
+            didHitPlayer = false;
             if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
             agent.speed = patrolSpeed;
             if (currDelay > maxPatrolDelayTime)
