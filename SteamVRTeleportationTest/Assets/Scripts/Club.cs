@@ -8,7 +8,7 @@ public class Club : MonoBehaviour
     private Vector3 currPos;
     private Vector3 v;
     public float maxSpeed;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class Club : MonoBehaviour
     public Vector3 GetClubVelocity()
     {
         float speed = v.magnitude;
-        if (speed > maxSpeed) return v * (maxSpeed / speed);
-        return v;
+        //if (speed > maxSpeed) return v * (maxSpeed / speed);
+        return v / 200;
     }
 }

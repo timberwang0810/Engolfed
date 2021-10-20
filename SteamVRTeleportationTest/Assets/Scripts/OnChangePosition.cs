@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,7 +35,7 @@ public class OnChangePosition : MonoBehaviour
     public float spookCooldown;
     private float currDelay;
     private float currSpookCooldown;
-   
+
     private List<Transform> destinations;
     private int currDestination;
     private bool didHitPlayer;
@@ -148,7 +148,7 @@ public class OnChangePosition : MonoBehaviour
                 SoundManager.S.MakeHoleApproachSound();
                 didHitPlayer = true;
             }
-            if (hit.collider.CompareTag("Player") 
+            if (hit.collider.CompareTag("Player")
                 && Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
                 && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
             {
@@ -193,7 +193,7 @@ public class OnChangePosition : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(agent.transform.position, 
+        if (Vector3.Distance(agent.transform.position,
             new Vector3(player.transform.position.x, agent.transform.position.y, player.transform.position.z)) <= 0.1f)
         {
             GameManager.S.OnGameLost();

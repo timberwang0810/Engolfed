@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip holeApproachSound;
     public AudioClip bgm_music;
     public AudioClip charge_music;
+    public AudioClip puttSound;
 
     private AudioSource audio;
 
@@ -83,5 +84,10 @@ public class SoundManager : MonoBehaviour
     {
         bgm.clip = bgm_music;
         bgm.Play();
+    }
+
+    public void MakePuttSound()
+    {
+        audio.PlayOneShot(puttSound);
     }
 }
