@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartNewGame()
     {
+        SoundManager.S.PlayBGM();
         gameState = GameState.playing;
     }
 
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
     public void OnGameLost()
     {
         gameState = GameState.gameOver;
+        SoundManager.S.StopAllSounds();
         StartCoroutine(LevelTransition());
     }
     private void OnGameWon()

@@ -79,9 +79,20 @@ public class SoundManager : MonoBehaviour
         bgm.Play();
     }
 
+    public void StopMusic()
+    {
+        bgm.Stop();
+    }
+
     public void PlayBGM()
     {
         bgm.clip = bgm_music;
         bgm.Play();
+    }
+
+    public void StopAllSounds()
+    {
+        StopMusic();
+        audio.Stop();
     }
 }
