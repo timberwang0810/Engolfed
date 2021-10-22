@@ -87,6 +87,7 @@ namespace Valve.VR.InteractionSystem
         public bool spewDebugText = false;
         public bool showDebugInteractables = false;
 
+
         public struct AttachedObject
         {
             public GameObject attachedObject;
@@ -107,6 +108,7 @@ namespace Valve.VR.InteractionSystem
             public Quaternion easeSourceRotation;
             public float attachTime;
             public AllowTeleportWhileAttachedToHand allowTeleportWhileAttachedToHand;
+
 
             public bool HasAttachFlag(AttachmentFlags flag)
             {
@@ -846,6 +848,10 @@ namespace Valve.VR.InteractionSystem
 
                 yield return null;
             }
+
+
+            //updatePuttDirection.AddOnStateDownListener(TriggerDown, handType);
+            //updatePuttDirection.AddOnStateUpListener(TriggerUp, handType);
         }
 
 

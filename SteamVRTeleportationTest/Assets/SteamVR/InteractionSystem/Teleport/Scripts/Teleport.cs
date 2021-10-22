@@ -113,6 +113,8 @@ namespace Valve.VR.InteractionSystem
 		// Custom
 		//private Animator maskAnimator;
 		public SteamVR_Overlay cameraOverlay;
+		public GameObject golfball;
+		public TeleportPoint puttTeleportPoint;
 
 		SteamVR_Events.Action chaperoneInfoInitializedAction;
 
@@ -246,7 +248,7 @@ namespace Valve.VR.InteractionSystem
 
 			foreach ( Hand hand in player.hands )
 			{
-				if ( visible )
+				if ( visible && hand.name == "LeftHand")
 				{
 					if ( WasTeleportButtonReleased( hand ) )
 					{
@@ -270,7 +272,7 @@ namespace Valve.VR.InteractionSystem
 			}
 			else
 			{
-				if ( !visible && newPointerHand != null )
+				if ( !visible && newPointerHand != null && newPointerHand.name == "LeftHand" )
 				{
 					//Begin showing the pointer
 					ShowPointer( newPointerHand, oldPointerHand );
@@ -1109,6 +1111,29 @@ namespace Valve.VR.InteractionSystem
 			}
 
 			return true;
+		}
+
+		public int TeleportBehindBall(Vector3 hmdLookDir, float ballOffsetScale)
+        {
+			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position))
+			{
+				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
+				
+				hmdLookDir.y = 0;
+				Vector3 ballOffset = hmdLookDir.normalized * ballOffsetScale;
+
+				Vector3 startPoint = player.trackingOriginTransform.position;
+				Vector3 endPoint = golfball.transform.position - ballOffset + playerFeetOffset;
+
+				StartCoroutine(DoDash(startPoint, endPoint));
+
+				if (player.leftHand.currentAttachedObjectInfo.HasValue)
+					player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
+				if (player.rightHand.currentAttachedObjectInfo.HasValue)
+					player.rightHand.ResetAttachedTransform(player.rightHand.currentAttachedObjectInfo.Value);
+			}
+
+			return 0;
 		}
 
 

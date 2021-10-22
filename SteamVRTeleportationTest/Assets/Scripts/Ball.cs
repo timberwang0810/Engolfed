@@ -18,8 +18,8 @@ public class Ball : MonoBehaviour
     {
         Color red = Color.red;
         lineRenderer = gameObject.GetComponent<LineRenderer>();
-        lineRenderer.startColor = red;
-        lineRenderer.endColor = red;
+        //lineRenderer.startColor = red;
+        //lineRenderer.endColor = red;
         lineRenderer.startWidth = 0.01f;
         lineRenderer.endWidth = 0.01f;
     }
@@ -35,8 +35,11 @@ public class Ball : MonoBehaviour
         }
         if (speed < 1e-4)
             speed = 0;
-        transform.position += direction * speed;
-        Debug.Log(transform.position);
+        else
+        {
+            transform.position += direction * speed;
+            Debug.Log(transform.position);
+        }
 
         //Store ball positions somewhere
         if (speed > 0)
