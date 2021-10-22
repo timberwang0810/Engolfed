@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject menuPanel;
     public GameObject inGameUI;
     public GameObject deathScreen;
+    public GameObject winScreen;
     public TextMeshProUGUI strokeCount;
 
     private void Awake()
@@ -46,6 +47,16 @@ public class UIManager : MonoBehaviour
     public void UpdateStrokeCount(int stroke)
     {
         strokeCount.text = "Stroke " + stroke;
+    }
+
+    public void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+    }
+
+    public void HideWinScreen()
+    {
+        winScreen.SetActive(false);
     }
 
     //public IEnumerator FadeFromBlack()

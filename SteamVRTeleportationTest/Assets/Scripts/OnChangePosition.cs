@@ -39,6 +39,7 @@ public class OnChangePosition : MonoBehaviour
     private List<Transform> destinations;
     private int currDestination;
     private bool didHitPlayer;
+    private bool isTracking;
 
     private void Start()
     {
@@ -135,7 +136,7 @@ public class OnChangePosition : MonoBehaviour
 
         RaycastHit hit;
         if (currDelay <= maxPatrolDelayTime + 1) currDelay += Time.deltaTime;
-        //if (currSpookCooldown <= spookCooldown + 1) currSpookCooldown += Time.deltaTime;
+        if (currSpookCooldown <= spookCooldown + 1) currSpookCooldown += Time.deltaTime;
         //Debug.DrawLine(agent.transform.position, player.transform.position, Color.white);
         //Debug.DrawRay(agent.transform.position, player.transform.position - agent.transform.position, Color.white);
         //Debug.Log(Vector3.Distance(agent.transform.position, player.transform.position));
@@ -143,27 +144,65 @@ public class OnChangePosition : MonoBehaviour
         if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit, sightRadius * 2))
         {
             //Debug.Log("detected something");
-            if (hit.collider.CompareTag("Player") && !didHitPlayer)
+            if (hit.collider.CompareTag("Player"))
             {
-                SoundManager.S.MakeHoleApproachSound();
-                didHitPlayer = true;
-            }
-            if (hit.collider.CompareTag("Player")
-                && Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
-                && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
-            {
-                didHitPlayer = true;
-                if (agent.speed == patrolSpeed) SoundManager.S.PlayChargeMusic();
-                agent.speed = chaseSpeed;
-                agent.destination = player.transform.position;
-                currDelay = 0;
+                if (isTracking)
+                {
+                    if (agent.speed == patrolSpeed)
+                    {
+                        SoundManager.S.StopMusic();
+                        SoundManager.S.PlayChargeMusic();
+                    }
+                    agent.speed = chaseSpeed;
+                    agent.destination = player.transform.position;
+                    currDelay = 0;
+                }
+                else
+                {
+                    if (!didHitPlayer && currSpookCooldown >= spookCooldown)
+                    {
+                        SoundManager.S.MakeHoleApproachSound();
+                        currSpookCooldown = 0;
+                    }
+                    didHitPlayer = true;
+                    if (Vector3.Distance(agent.transform.position, player.transform.position) <= sightRadius
+                        && Vector3.Angle(agent.transform.forward, player.transform.position - agent.transform.position) <= sightAngle)
+                    {
+                        isTracking = true;
+                    }
+                    else
+                    {
+                        if (agent.speed == chaseSpeed)
+                        {
+                            SoundManager.S.StopMusic();
+                            SoundManager.S.PlayBGM();
+                        }
+                        agent.speed = patrolSpeed;
+                        if (currDelay >= maxPatrolDelayTime)
+                        {
+                            agent.destination = destinations[currDestination].position;
+                            //Debug.Log(Vector3.Distance(agent.transform.position, destinations[currDestination].position));
+                            if (Vector3.Distance(agent.transform.position, destinations[currDestination].position) <= 0.2f)
+                            {
+                                currDestination = Random.Range(0, destinations.Count);
+                                currDelay = 0;
+                            }
+                        }
+                    }
+                }
+
             }
             else
             {
                 didHitPlayer = false;
-                if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
+                isTracking = false;
+                if (agent.speed == chaseSpeed)
+                {
+                    SoundManager.S.StopMusic();
+                    SoundManager.S.PlayBGM();
+                }
                 agent.speed = patrolSpeed;
-                if (currDelay > maxPatrolDelayTime)
+                if (currDelay >= maxPatrolDelayTime)
                 {
                     agent.destination = destinations[currDestination].position;
                     //Debug.Log(Vector3.Distance(agent.transform.position, destinations[currDestination].position));
@@ -179,9 +218,14 @@ public class OnChangePosition : MonoBehaviour
         else
         {
             didHitPlayer = false;
-            if (agent.speed == chaseSpeed) SoundManager.S.PlayBGM();
+            isTracking = false;
+            if (agent.speed == chaseSpeed)
+            {
+                SoundManager.S.StopMusic();
+                SoundManager.S.PlayBGM();
+            }
             agent.speed = patrolSpeed;
-            if (currDelay > maxPatrolDelayTime)
+            if (currDelay >= maxPatrolDelayTime)
             {
                 agent.destination = destinations[currDestination].position;
                 //Debug.Log(Vector3.Distance(agent.transform.position, destinations[currDestination].position));
