@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void StartNewGame()
     {
         SoundManager.S.PlayBGM();
+        UIManager.S.HideWinScreen();
         gameState = GameState.playing;
     }
 
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.gameOver;
         Debug.Log("HOOOORAY");
         SoundManager.S.MakeYaySound();
+        UIManager.S.ShowWinScreen();
     }
 
     private IEnumerator LevelTransition()

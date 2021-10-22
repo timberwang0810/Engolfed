@@ -8,7 +8,8 @@ public class KillerCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            GameManager.S.OnBallCaptured();
+            if (GameManager.S) GameManager.S.OnBallCaptured();
+            else GameObject.Find("clown_door").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
         }
         else
         {
