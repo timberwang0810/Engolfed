@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,7 +35,7 @@ public class OnChangePosition : MonoBehaviour
     public float spookCooldown;
     private float currDelay;
     private float currSpookCooldown;
-   
+
     private List<Transform> destinations;
     private int currDestination;
     private bool didHitPlayer;
@@ -237,7 +237,7 @@ public class OnChangePosition : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(agent.transform.position, 
+        if (Vector3.Distance(agent.transform.position,
             new Vector3(player.transform.position.x, agent.transform.position.y, player.transform.position.z)) <= 0.1f)
         {
             GameManager.S.OnGameLost();
