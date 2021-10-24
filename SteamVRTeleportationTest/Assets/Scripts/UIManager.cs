@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
     {
         //menuPanel.SetActive(true);
         //inGameUI.SetActive(false);
-        strokeCount.text = "Stroke 0";
+        strokeCount.text = "Stroke 1";
     }
 
     public void OnGameStart()

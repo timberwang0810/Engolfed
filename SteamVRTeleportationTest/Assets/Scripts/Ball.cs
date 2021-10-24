@@ -7,6 +7,10 @@ public class Ball : MonoBehaviour
     public float force = 3;
     public float speed = 0.0f;
     public float drag = 0.01f;
+    public float floorHeight = 0.04f;
+
+    public UIManager UI;
+    private int num_strokes = 1;
 
     private Vector3 direction;
 
@@ -38,6 +42,10 @@ public class Ball : MonoBehaviour
         else
         {
             transform.position += direction * speed;
+            if(transform.position.y < floorHeight)
+            {
+                transform.position = new Vector3(transform.position.x, floorHeight, transform.position.z);
+            }
             Debug.Log(transform.position);
         }
 
@@ -62,6 +70,9 @@ public class Ball : MonoBehaviour
         if (other.gameObject.CompareTag("Club"))
         {
             SoundManager.S.MakePuttSound();
+
+            num_strokes += 1;
+            UI.UpdateStrokeCount(num_strokes);
 
             //Vector3 dir = collision.contacts[0].point - transform.position;
             //dir = -dir.normalized;
