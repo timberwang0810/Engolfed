@@ -157,10 +157,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr-line-renderer": {
-      "version": "file:C:/Users/info/Downloads/XRLineRenderer-main/XRLineRenderer-main",
+      "version": "0.1.3-preview",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
       "version": "4.1.7",
