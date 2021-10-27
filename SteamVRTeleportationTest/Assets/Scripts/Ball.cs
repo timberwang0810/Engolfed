@@ -38,7 +38,10 @@ public class Ball : MonoBehaviour
             Debug.Log(speed);
         }
         if (speed < 1e-4)
+        {
             speed = 0;
+            Debug.Log(speed);
+        }
         else
         {
             transform.position += direction * speed;
@@ -50,7 +53,7 @@ public class Ball : MonoBehaviour
         }
 
         //Store ball positions somewhere
-        if (speed > 0)
+        if (GetComponent<Rigidbody>().velocity.magnitude != 0)
         {
             ballPos.Add(transform.position);
         }

@@ -1246,6 +1246,10 @@ PrefabInstance:
       propertyPath: titleVisibleColor.r
       value: 0.13725491
       objectReference: {fileID: 0}
+    - target: {fileID: 13593758, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ac470d3d909d645a6c89a4664b6849, type: 3}
 --- !u!1001 &231580131
@@ -2676,18 +2680,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &791766295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283,
-    type: 3}
-  m_PrefabInstance: {fileID: 177962452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f260935093f73f241bfaa1578e5e5506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &803284064
 GameObject:
   m_ObjectHideFlags: 0
@@ -7161,7 +7153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809926107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3930d08f8c48504d99f213a188cc596, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d7cd77a29c8d8648902e67c4f68c057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   golfball: {fileID: 1849208441}
@@ -7330,6 +7322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028744346529255384, guid: cd85f1fd3bc529c4086252751a531c49,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3028744346529255384, guid: cd85f1fd3bc529c4086252751a531c49,
         type: 3}
@@ -9138,13 +9135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdf5baa3877aee4da80dff1b75f4716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SphereOnOff:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  handType: 1
-  VRCamera: {fileID: 1616884676}
-  teleport: {fileID: 791766295}
-  ballOffsetScale: 0.6
 --- !u!1 &2082175573
 GameObject:
   m_ObjectHideFlags: 0
