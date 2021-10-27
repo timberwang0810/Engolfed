@@ -5,13 +5,17 @@ using UnityEngine;
 public class Scorecard : MonoBehaviour
 {
     public GameObject scorecardPrefab;
+
+    private void Start()
+    {
+        scorecardPrefab = UIManager.S.scorecardUI;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("triggered enter: " + other.gameObject.name + ", tag: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Scorecard"))
         {
-            GameObject scorecard = other.gameObject.transform.GetChild(0).gameObject;
-            scorecard.SetActive(!scorecard.activeSelf);
+            scorecardPrefab.SetActive(!scorecardPrefab.activeSelf);
         }
     }
 }

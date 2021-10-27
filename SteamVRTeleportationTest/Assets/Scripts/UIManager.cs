@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject winScreen;
     public TextMeshProUGUI strokeCount;
 
+    public GameObject scorecardUI;
+
     private void Awake()
     {
         // Singleton Definition
