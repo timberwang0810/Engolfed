@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bgm_music;
     public AudioClip charge_music;
     public AudioClip puttSound;
+    public AudioClip oobSound;
 
     private AudioSource audio;
 
@@ -100,5 +101,10 @@ public class SoundManager : MonoBehaviour
     public void MakePuttSound()
     {
         audio.PlayOneShot(puttSound);
+    }
+
+    public void MakeOOBSound()
+    {
+        audio.PlayOneShot(oobSound);
     }
 }
