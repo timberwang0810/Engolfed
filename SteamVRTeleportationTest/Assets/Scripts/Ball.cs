@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     public float speed = 0.0f;
     public float drag = 0.01f;
     public float floorHeight = 0.04f;
+    public float speedScale = 10.0f;
 
     public UIManager UI;
     private int num_strokes = 1;
@@ -32,7 +33,7 @@ public class Ball : MonoBehaviour
     void Update()
     {
         //direction.x = 1.0f;
-        if (speed > 0)
+        /*if (speed > 0)
         {
             speed -= drag * Time.deltaTime;
             Debug.Log(speed);
@@ -50,7 +51,7 @@ public class Ball : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, floorHeight, transform.position.z);
             }
             Debug.Log(transform.position);
-        }
+        }*/
 
         //Store ball positions somewhere
         if (GetComponent<Rigidbody>().velocity.magnitude != 0)
@@ -84,9 +85,12 @@ public class Ball : MonoBehaviour
 
             //GetComponent<Rigidbody>().velocity = other.gameObject.GetComponent<Club>().GetClubVelocity();
             Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
-            speed = vel_vec.magnitude;
-            direction = vel_vec / speed;
-            direction.y = 0;
+            //speed = vel_vec.magnitude;
+            //direction = vel_vec / speed;
+            //direction.y = 0;
+
+            vel_vec *= speedScale;
+            GetComponent<Rigidbody>().velocity = vel_vec;
 
             ballPos.Clear();
         }

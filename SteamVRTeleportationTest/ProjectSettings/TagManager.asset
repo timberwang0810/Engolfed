@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Club
+  - Scorecard
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - ShaderHole
   - ShaderHoleMask
   - Ball
-  - 
+  - Backpack
   - 
   - 
   - 
