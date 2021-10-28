@@ -29,7 +29,7 @@ public class ChangeLevelTrigger : MonoBehaviour
     private IEnumerator LevelTransition()
     {
         // TODO: Hole "animation"
-        SoundManager.S.MakeNomSound();
+        hole.GetComponent<AudioSource>().Play();
         hole.SetActive(true);
         // Disable teleportation
         RaycastHit hit;
@@ -40,7 +40,7 @@ public class ChangeLevelTrigger : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
         hole.GetComponent<Collider>().enabled = false;
-        SoundManager.S.StopAllSounds();
+        hole.GetComponent<AudioSource>().Stop();
         SoundManager.S.MakeHoleApproachSound();
         yield return new WaitForSeconds(3.0f);
         SoundManager.S.PlayChargeMusic();
