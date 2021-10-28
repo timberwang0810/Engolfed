@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     public float floorHeight = -0.3f;
     public float speedScale = 10.0f;
 
+    public GameObject flag;
+
     public UIManager UI;
     private int num_strokes = 1;
 
@@ -70,14 +72,23 @@ public class Ball : MonoBehaviour
             lineRenderer.SetPosition(i, ballPos[i]);
         }
 
-        if (transform.position.y < floorHeight)
+        if (transform.position.y < floorHeight && ballPos.Count > 0)
         {
-            wasOOB = true;
-            SoundManager.S.MakeOOBSound();
+            if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2)
+            {
+                if (GameManager.S) GameManager.S.OnBallCaptured();
+                else GameObject.Find("clown_door").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                //Destroy(this.gameObject, 0.1f);
+            }
+            else
+            {
+                wasOOB = true;
+                SoundManager.S.MakeOOBSound();
 
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            transform.position = ballPos[0];
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                transform.position = ballPos[0];
+            }
         }
     }
 

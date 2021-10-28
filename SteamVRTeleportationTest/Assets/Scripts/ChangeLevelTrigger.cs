@@ -9,16 +9,20 @@ public class ChangeLevelTrigger : MonoBehaviour
     public string nextLevelName;
     public bool isLevelCompleted;
     public GameObject player;
+    private Camera playerCam;
     public GameObject hole;
 
     private void Start()
     {
         hole.SetActive(false);
+        playerCam = player.GetComponentInChildren<Camera>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && isLevelCompleted)
         {
+            Debug.Log("IN");
+            gameObject.GetComponent<Collider>().enabled = false;
             StartCoroutine(LevelTransition());
         }
     }
@@ -29,18 +33,21 @@ public class ChangeLevelTrigger : MonoBehaviour
         hole.SetActive(true);
         // Disable teleportation
         RaycastHit hit;
-        while (!Physics.Raycast(player.transform.position, hole.transform.position - player.transform.position, out hit, Mathf.Infinity) 
+        while (!Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, Mathf.Infinity) 
             || !hit.collider.gameObject.CompareTag("Hole"))
         {
+            Debug.Log(hit.collider == null ? "null" : hit.collider.gameObject.name);
             yield return new WaitForSeconds(1.0f);
-            SoundManager.S.MakeNomSound();
         }
+        hole.GetComponent<Collider>().enabled = false;
+        SoundManager.S.StopAllSounds();
         SoundManager.S.MakeHoleApproachSound();
         yield return new WaitForSeconds(3.0f);
         SoundManager.S.PlayChargeMusic();
-        while (Vector3.Distance(player.transform.position, hole.transform.position) >= 0.05f)
+        Vector3 target = new Vector3(player.transform.position.x, hole.transform.position.y, player.transform.position.z);
+        while (Vector3.Distance(target, hole.transform.position) >= 0.05f)
         {
-            hole.transform.position = Vector3.MoveTowards(hole.transform.position, player.transform.position, 5);
+            hole.transform.position = Vector3.MoveTowards(hole.transform.position, target, 0.1f);
             yield return null;
         }
         SteamVR_Fade.Start(Color.black, 3.0f);
