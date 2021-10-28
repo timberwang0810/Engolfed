@@ -1758,6 +1758,7 @@ MonoBehaviour:
   deathScreen: {fileID: 661248927}
   winScreen: {fileID: 983069715}
   strokeCount: {fileID: 35520291}
+  scorecardUI: {fileID: 0}
 --- !u!4 &349881206
 Transform:
   m_ObjectHideFlags: 0
@@ -4035,7 +4036,7 @@ MonoBehaviour:
   force: 3
   speed: 0
   drag: 0.01
-  floorHeight: -0.264
+  floorHeight: -0.28
   speedScale: 200
   UI: {fileID: 349881205}
 --- !u!120 &1231845792
@@ -5285,6 +5286,7 @@ MonoBehaviour:
   bgm_music: {fileID: 8300000, guid: 68913b90e306fde4cb01783fd90d8c3f, type: 3}
   charge_music: {fileID: 8300000, guid: 406767e6d506b6a448a9724f4eaf9ada, type: 3}
   puttSound: {fileID: 8300000, guid: 3daa65cc23152064a9029b82e71d4cfa, type: 3}
+  oobSound: {fileID: 8300000, guid: afbdb423c43b7e149868eaf1710ba4ba, type: 3}
   bgm: {fileID: 0}
 --- !u!1 &1516202598
 GameObject:

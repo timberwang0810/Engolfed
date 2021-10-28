@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     public float force = 3;
     public float speed = 0.0f;
     public float drag = 0.01f;
-    public float floorHeight = 0.04f;
+    public float floorHeight = -0.3f;
     public float speedScale = 10.0f;
 
     public UIManager UI;
@@ -17,6 +17,8 @@ public class Ball : MonoBehaviour
 
     private List<Vector3> ballPos = new List<Vector3>();
     private LineRenderer lineRenderer;
+
+    private bool wasOOB = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,7 @@ public class Ball : MonoBehaviour
         }*/
 
         //Store ball positions somewhere
-        if (GetComponent<Rigidbody>().velocity.magnitude != 0)
+        if (GetComponent<Rigidbody>().velocity.magnitude != 0 && !wasOOB)
         {
             ballPos.Add(transform.position);
         }
@@ -67,12 +69,23 @@ public class Ball : MonoBehaviour
             //Change the postion of the lines
             lineRenderer.SetPosition(i, ballPos[i]);
         }
+
+        if (transform.position.y < floorHeight)
+        {
+            wasOOB = true;
+            SoundManager.S.MakeOOBSound();
+
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            transform.position = ballPos[0];
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Club"))
         {
+            wasOOB = false;
             SoundManager.S.MakePuttSound();
 
             num_strokes += 1;
