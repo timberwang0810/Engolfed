@@ -5305,6 +5305,7 @@ MonoBehaviour:
   speedScale: 200
   flag: {fileID: 1831679677}
   UI: {fileID: 349881205}
+  clownGate: {fileID: 552124215}
 --- !u!120 &1231845792
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5927,8 +5928,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.24968155, y: 0.30889133, z: 0.27027097}
-  m_Center: {x: -0.030039929, y: 0.06942474, z: 0.124174386}
+  m_Size: {x: 0.16780812, y: 0.30889142, z: 0.27027097}
+  m_Center: {x: 0.010896695, y: 0.069424786, z: 0.124174386}
 --- !u!114 &1361995374
 MonoBehaviour:
   m_ObjectHideFlags: 0

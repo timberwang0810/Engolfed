@@ -22,6 +22,9 @@ public class Ball : MonoBehaviour
 
     private bool wasOOB = false;
 
+    public GameObject clownGate;
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class Ball : MonoBehaviour
         //lineRenderer.endColor = red;
         lineRenderer.startWidth = 0.01f;
         lineRenderer.endWidth = 0.01f;
+
+        anim = clownGate.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -77,7 +82,11 @@ public class Ball : MonoBehaviour
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2)
             {
                 if (GameManager.S) GameManager.S.OnBallCaptured();
-                else GameObject.Find("clown_door").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                else
+                {
+                    GameObject.Find("clown_door").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                    anim.Play("GateOpening");
+                }
                 //Destroy(this.gameObject, 0.1f);
             }
             else
