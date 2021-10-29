@@ -25,6 +25,8 @@ public class Ball : MonoBehaviour
     public GameObject clownGate;
     private Animator anim;
 
+    private bool levelComplete = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,13 +81,19 @@ public class Ball : MonoBehaviour
 
         if (transform.position.y < floorHeight && ballPos.Count > 0)
         {
+            Debug.Log("blah");
+            Debug.Log(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2);
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2)
             {
+                Debug.Log("zee");
                 if (GameManager.S) GameManager.S.OnBallCaptured();
-                else
+                else if(!levelComplete)
                 {
-                    GameObject.Find("clown_door").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                    levelComplete = true;
+                    GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
                     anim.Play("GateOpening");
+                    SoundManager.S.MakeChipInSounds();
+                    GameObject.Find("backFence").SetActive(false);
                 }
                 //Destroy(this.gameObject, 0.1f);
             }

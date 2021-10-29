@@ -17,6 +17,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip charge_music;
     public AudioClip puttSound;
     public AudioClip oobSound;
+    public AudioClip zombieAttack;
+    public AudioClip childScream;
+    public AudioClip chipIn;
+    public AudioClip gateOpen;
 
     private AudioSource audio;
 
@@ -106,5 +110,17 @@ public class SoundManager : MonoBehaviour
     public void MakeOOBSound()
     {
         audio.PlayOneShot(oobSound);
+    }
+
+    public void MakeScreamSounds()
+    {
+        audio.PlayOneShot(childScream);
+        audio.PlayOneShot(zombieAttack);
+    }
+
+    public void MakeChipInSounds()
+    {
+        audio.PlayOneShot(chipIn);
+        audio.PlayOneShot(gateOpen);
     }
 }
