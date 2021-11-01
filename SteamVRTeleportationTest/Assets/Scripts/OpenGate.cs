@@ -15,7 +15,7 @@ public class OpenGate : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            anim.Play("GateOpening");
+            anim.SetTrigger("Open");
         }
     }
 }

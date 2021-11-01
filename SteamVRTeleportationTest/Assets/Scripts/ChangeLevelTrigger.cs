@@ -29,12 +29,21 @@ public class ChangeLevelTrigger : MonoBehaviour
     }
     private IEnumerator LevelTransition()
     {
+        SteamVR_Fade.Start(Color.black, 3.0f);
+        yield return new WaitForSeconds(5.0f);
+        //if (player) Destroy(player);
+        SoundManager.S.StopAllSounds();
+        SceneManager.LoadScene(nextLevelName);
+    }
+
+    private IEnumerator LevelTransitionOld()
+    {
         // TODO: Hole "animation"
         hole.GetComponent<AudioSource>().Play();
         hole.SetActive(true);
         // Disable teleportation
         RaycastHit hit;
-        while (!Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, Mathf.Infinity) 
+        while (!Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, Mathf.Infinity)
             || !hit.collider.gameObject.CompareTag("Hole"))
         {
             Debug.Log(hit.collider == null ? "null" : hit.collider.gameObject.name);
@@ -57,7 +66,5 @@ public class ChangeLevelTrigger : MonoBehaviour
         //if (player) Destroy(player);
         SoundManager.S.StopAllSounds();
         SceneManager.LoadScene(nextLevelName);
-
-        //logoScreen.SetActive(true);
     }
 }
