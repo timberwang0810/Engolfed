@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         lineRenderer.startWidth = 0.01f;
         lineRenderer.endWidth = 0.01f;
 
-        anim = clownGate.GetComponent<Animator>();
+        if (clownGate) anim = clownGate.GetComponent<Animator>();
     }
 
     // Update is called once per frame

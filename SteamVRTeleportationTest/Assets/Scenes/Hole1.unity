@@ -5274,6 +5274,41 @@ PrefabInstance:
       propertyPath: texture
       value: 
       objectReference: {fileID: 2800000, guid: 5ff12a1ec555d3d4189025814f870b6a, type: 3}
+    - target: {fileID: 114000012749712888, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: doNotDestroy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.85768074
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.21202865
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.2771355
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.09165618
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.18488608
+      objectReference: {fileID: 0}
+    - target: {fileID: 229069154659167315, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.5185052
+      objectReference: {fileID: 0}
     - target: {fileID: 2559290528254469464, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: m_Size.z

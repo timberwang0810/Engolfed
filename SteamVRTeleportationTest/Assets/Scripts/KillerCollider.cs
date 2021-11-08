@@ -13,7 +13,7 @@ public class KillerCollider : MonoBehaviour
         }
         else
         {
-            SoundManager.S.MakeNomSound();
+            //SoundManager.S.MakeNomSound();
         }
         Destroy(collision.gameObject);
     }
