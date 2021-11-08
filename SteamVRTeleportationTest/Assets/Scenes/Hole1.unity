@@ -2710,6 +2710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: clown_door_gate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa6ed04813236e14689a377502645de1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa6ed04813236e14689a377502645de1, type: 3}
 --- !u!1 &552124215 stripped
@@ -3597,7 +3602,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fbc96282716cad4ca1529de9de156c4, type: 2}
+  - {fileID: -8527005277810123771, guid: 35730b8e9c7c0fb49b4e615e095e0b8c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
