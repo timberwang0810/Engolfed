@@ -109,7 +109,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Club"))
+        if (other.gameObject.CompareTag("ClubHead"))
         {
             wasOOB = false;
             SoundManager.S.MakePuttSound();

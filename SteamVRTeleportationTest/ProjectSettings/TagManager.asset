@@ -8,6 +8,8 @@ TagManager:
   - Club
   - Scorecard
   - Hole
+  - FloorCollider
+  - ClubHead
   layers:
   - Default
   - TransparentFX
@@ -22,8 +24,8 @@ TagManager:
   - ShaderHoleMask
   - Ball
   - Backpack
-  - 
-  - 
+  - FloorCollider
+  - Club
   - 
   - 
   - 
