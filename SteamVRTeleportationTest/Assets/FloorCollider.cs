@@ -52,7 +52,7 @@ public class FloorCollider : MonoBehaviour
             Debug.Log("YES " + Mathf.Abs(oldPosWorld.y - handObject.transform.position.y));
             GameObject clubHead = other.gameObject.transform.GetChild(0).gameObject;
             clubHead.transform.localPosition = new Vector3(clubHead.transform.localPosition.x,
-                                                                    oldPos.y + (Mathf.Abs(oldPosWorld.y- handObject.transform.position.y)* 2),
+                                                                    oldPos.y + (Mathf.Abs(oldPosWorld.y- handObject.transform.position.y)* 2.5f),
                                                                     clubHead.transform.localPosition.z);
         }
     }

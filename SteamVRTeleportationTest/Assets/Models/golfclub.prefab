@@ -84,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: golfclub-new
       objectReference: {fileID: 0}
+    - target: {fileID: 275949728367732910, guid: 978b4a30099958343bd9a31bcc0da757,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 621371937994125844, guid: 978b4a30099958343bd9a31bcc0da757,
         type: 3}
       propertyPath: m_RootOrder
@@ -357,7 +362,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 782a0cf8f7ba5b94f9c1b25ae090c6d9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 782a0cf8f7ba5b94f9c1b25ae090c6d9,
         type: 3}
