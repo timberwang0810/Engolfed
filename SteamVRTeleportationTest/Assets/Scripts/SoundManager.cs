@@ -13,14 +13,20 @@ public class SoundManager : MonoBehaviour
     public AudioClip yaySound;
     public AudioClip startSound;
     public AudioClip holeApproachSound;
-    public AudioClip bgm_music;
-    public AudioClip charge_music;
     public AudioClip puttSound;
     public AudioClip oobSound;
     public AudioClip zombieAttack;
     public AudioClip childScream;
     public AudioClip chipIn;
     public AudioClip gateOpen;
+    public AudioClip scoreCard;
+    public AudioClip holeFrustrationSound;
+
+    [Header("BGM Clips")]
+    public AudioClip creepyMusicBoxBGM;
+    public AudioClip bgm_music;
+    public AudioClip charge_music;
+
 
     private AudioSource audio;
 
@@ -79,6 +85,16 @@ public class SoundManager : MonoBehaviour
         audio.PlayOneShot(holeApproachSound);
     }
 
+    public void MakeHoleFrustrationSound()
+    {
+        audio.PlayOneShot(holeFrustrationSound);
+    }
+
+    public void MakeScorecardSound()
+    {
+        audio.PlayOneShot(scoreCard);
+    }
+
     public void PlayChargeMusic()
     {
         bgm.clip = charge_music;
@@ -93,6 +109,12 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM()
     {
         bgm.clip = bgm_music;
+        bgm.Play();
+    }
+
+    public void PlayCreepyMusicBoxBGM()
+    {
+        bgm.clip = creepyMusicBoxBGM;
         bgm.Play();
     }
 

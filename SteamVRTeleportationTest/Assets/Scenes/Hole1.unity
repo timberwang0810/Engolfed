@@ -2427,7 +2427,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 8
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2478,7 +2478,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.055555556
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4613,6 +4613,7 @@ GameObject:
   - component: {fileID: 1003894917}
   - component: {fileID: 1003894918}
   - component: {fileID: 1003894919}
+  - component: {fileID: 1003894920}
   m_Layer: 0
   m_Name: ColliderHolder
   m_TagString: Untagged
@@ -4666,6 +4667,102 @@ MonoBehaviour:
   hole: {fileID: 401773400}
   backFence: {fileID: 585974678}
   logoScreen: {fileID: 1448162818}
+--- !u!82 &1003894920
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003894916}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9f3b8d53b2cef8d46ade6b711850b793, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1015955998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6098,7 +6195,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 68913b90e306fde4cb01783fd90d8c3f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 62b5576d27df5c44fa733db684f219a9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7563,15 +7660,19 @@ MonoBehaviour:
   nomSound: {fileID: 8300000, guid: b819766531993e84a80dc98f97a3d701, type: 3}
   yaySound: {fileID: 8300000, guid: f26367a0d9f3de54b844f82e6402527a, type: 3}
   startSound: {fileID: 8300000, guid: ccb2995262664ab42917a199ae11dd8f, type: 3}
-  holeApproachSound: {fileID: 8300000, guid: a10aeb1679842c544952cf58b7ccf456, type: 3}
-  bgm_music: {fileID: 8300000, guid: 68913b90e306fde4cb01783fd90d8c3f, type: 3}
-  charge_music: {fileID: 8300000, guid: 406767e6d506b6a448a9724f4eaf9ada, type: 3}
+  holeApproachSound: {fileID: 8300000, guid: d64fdc7cf565f1e48a5698b25b2cfa8e, type: 3}
   puttSound: {fileID: 8300000, guid: 3daa65cc23152064a9029b82e71d4cfa, type: 3}
   oobSound: {fileID: 8300000, guid: 46dd09dda7269984d85cba500778658b, type: 3}
-  zombieAttack: {fileID: 8300000, guid: a10aeb1679842c544952cf58b7ccf456, type: 3}
-  childScream: {fileID: 8300000, guid: c8cc33abafea6264aab60ad43f0dcefa, type: 3}
-  chipIn: {fileID: 8300000, guid: 95808caad634b054bbfb63fdf1cc2e25, type: 3}
-  gateOpen: {fileID: 8300000, guid: a8122c75889077046a8e1ce8b0c66ff2, type: 3}
+  zombieAttack: {fileID: 8300000, guid: 7c9fcd85b2f14f24caba3583dd5e86f3, type: 3}
+  childScream: {fileID: 8300000, guid: e5ec64855e0ee6e4396b5316a5696041, type: 3}
+  chipIn: {fileID: 8300000, guid: 33bb6842955d86f438705b00779bc671, type: 3}
+  gateOpen: {fileID: 0}
+  scoreCard: {fileID: 8300000, guid: 2198c6e5abbedd94a80171b201b6870c, type: 3}
+  holeFrustrationSound: {fileID: 8300000, guid: d01e0e13becf3f8458f8c05c32d93894,
+    type: 3}
+  creepyMusicBoxBGM: {fileID: 8300000, guid: 62b5576d27df5c44fa733db684f219a9, type: 3}
+  bgm_music: {fileID: 8300000, guid: 68913b90e306fde4cb01783fd90d8c3f, type: 3}
+  charge_music: {fileID: 8300000, guid: 406767e6d506b6a448a9724f4eaf9ada, type: 3}
   bgm: {fileID: 1287240642}
 --- !u!1 &1516202598
 GameObject:
