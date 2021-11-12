@@ -21,10 +21,12 @@ public class Scorecard : MonoBehaviour
             Debug.Log(hand.GetGrabStarting());
             if (hand.GetGrabStarting() != GrabTypes.None)
             {
+                if (!scorecardPrefab.activeSelf) SoundManager.S.MakeScorecardSound();
                 scorecardPrefab.SetActive(true);
             }
             else if (hand.GetGrabEnding() != GrabTypes.None)
             {
+                if (scorecardPrefab.activeSelf) SoundManager.S.MakeScorecardSound();
                 scorecardPrefab.SetActive(false);
             }
         }

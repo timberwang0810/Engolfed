@@ -89,6 +89,7 @@ public class Ball : MonoBehaviour
                 {
                     levelComplete = true;
                     GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                    GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
                     anim.SetTrigger("Open");
                     SoundManager.S.MakeChipInSounds();
                     GameObject.Find("backFence").SetActive(false);
