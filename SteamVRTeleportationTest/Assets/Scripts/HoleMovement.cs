@@ -145,7 +145,7 @@ public class HoleMovement : MonoBehaviour
         }
 
         if (Vector3.Distance(agent.transform.position,
-            new Vector3(player.transform.position.x, agent.transform.position.y, player.transform.position.z)) <= 1.0f)
+            new Vector3(player.transform.position.x, agent.transform.position.y, player.transform.position.z)) <= 0.5f)
         {
             GameManager.S.OnGameLost();
         }

@@ -38,7 +38,9 @@ namespace Valve.VR.InteractionSystem
         {
             //Debug.Log("Trigger is down");
             //Sphere.GetComponent<MeshRenderer>().enabled = true;
-            hmdLookDir = VRCamera.transform.forward;
+            Camera hmdCam = GameObject.Find("VRCamera").GetComponent<Camera>();
+            Debug.Log(hmdCam.ToString());
+            hmdLookDir = hmdCam.transform.forward;
             teleport.TeleportBehindBall(hmdLookDir, ballOffsetScale);
             Debug.Log(hmdLookDir.ToString());
         }
