@@ -4,17 +4,45 @@ using UnityEngine;
 
 public class Club : MonoBehaviour
 {
+    public bool isClipping = false;
+    private float yPos;
+
     private Vector3 initPos;
     private Vector3 currPos;
     private Vector3 v;
     public float maxSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         initPos = transform.position;
         currPos = transform.position;
+        yPos = transform.position.y;
     }
+
+    private void Update()
+    {
+        
+    }
+    
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("YES");
+
+    //    if (collision.gameObject.CompareTag("FloorCollider"))
+    //    {
+    //        isClipping = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("FloorCollider"))
+    //    {
+    //        isClipping = false;
+    //    }
+    //}
 
     // Update is called once per frame
     void FixedUpdate()

@@ -9,8 +9,10 @@ public class ChangeLevelTrigger : MonoBehaviour
     public string nextLevelName;
     public bool isLevelCompleted;
     public GameObject player;
+    public Transform holeDestination;
     private Camera playerCam;
     public GameObject hole;
+    public GameObject backFence;
     public GameObject logoScreen;
 
     private void Start()
@@ -24,7 +26,9 @@ public class ChangeLevelTrigger : MonoBehaviour
         {
             Debug.Log("IN");
             gameObject.GetComponent<Collider>().enabled = false;
-            StartCoroutine(LevelTransition());
+            backFence.SetActive(true);
+            SoundManager.S.StopMusic();
+            StartCoroutine(LevelTransitionOld());
         }
     }
     private IEnumerator LevelTransition()
@@ -55,12 +59,14 @@ public class ChangeLevelTrigger : MonoBehaviour
         SoundManager.S.MakeHoleApproachSound();
         yield return new WaitForSeconds(3.0f);
         SoundManager.S.PlayChargeMusic();
-        Vector3 target = new Vector3(player.transform.position.x, hole.transform.position.y, player.transform.position.z);
+        Vector3 target = new Vector3(holeDestination.position.x, hole.transform.position.y, holeDestination.position.z);
         while (Vector3.Distance(target, hole.transform.position) >= 0.05f)
         {
             hole.transform.position = Vector3.MoveTowards(hole.transform.position, target, 0.1f);
             yield return null;
         }
+        SoundManager.S.MakeHoleFrustrationSound();
+        yield return new WaitForSeconds(3.0f);
         SteamVR_Fade.Start(Color.black, 3.0f);
         yield return new WaitForSeconds(5.0f);
         //if (player) Destroy(player);

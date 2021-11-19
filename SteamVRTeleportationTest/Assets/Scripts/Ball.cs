@@ -89,6 +89,7 @@ public class Ball : MonoBehaviour
                 {
                     levelComplete = true;
                     GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                    GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
                     anim.SetTrigger("Open");
                     SoundManager.S.MakeChipInSounds();
                     GameObject.Find("backFence").SetActive(false);
@@ -109,7 +110,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Club"))
+        if (other.gameObject.CompareTag("ClubHead"))
         {
             wasOOB = false;
             SoundManager.S.MakePuttSound();
