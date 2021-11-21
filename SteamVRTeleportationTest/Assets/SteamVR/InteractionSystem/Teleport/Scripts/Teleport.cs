@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
+
 namespace Valve.VR.InteractionSystem
 {
 	//-------------------------------------------------------------------------
@@ -115,6 +116,11 @@ namespace Valve.VR.InteractionSystem
 		public SteamVR_Overlay cameraOverlay;
 		public GameObject golfball;
 		public TeleportPoint puttTeleportPoint;
+
+		public bool isTutorial;
+		private GameObject teleportationPanel;
+		private bool hasTeleported = false;
+		private bool hasTeleportedToBall = false;
 
 		SteamVR_Events.Action chaperoneInfoInitializedAction;
 
@@ -862,6 +868,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void TeleportPlayer()
 		{
+			if (isTutorial && teleportationPanel == null) return;
 			teleporting = false;
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
@@ -905,7 +912,12 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = teleportPosition + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
-
+				if (!hasTeleported)
+                {
+					teleportationPanel.SetActive(false);
+					hasTeleported = true;
+                }
+								
 				if (player.leftHand.currentAttachedObjectInfo.HasValue)
                     player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
                 if (player.rightHand.currentAttachedObjectInfo.HasValue)
@@ -1115,7 +1127,7 @@ namespace Valve.VR.InteractionSystem
 
 		public int TeleportBehindBall(Vector3 hmdLookDir, float ballOffsetScale)
         {
-			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position))
+			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position) && (!isTutorial || teleportationPanel != null))
 			{
 				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
 				
@@ -1126,6 +1138,12 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = golfball.transform.position - ballOffset + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
+				if (!hasTeleportedToBall)
+				{
+					teleportationPanel.SetActive(false);
+					hasTeleported = true;
+					hasTeleportedToBall = true;
+				}
 
 				if (player.leftHand.currentAttachedObjectInfo.HasValue)
 					player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
@@ -1135,6 +1153,12 @@ namespace Valve.VR.InteractionSystem
 
 			return 0;
 		}
+
+		public void LoadTutorialPanel(GameObject teleportationPanel)
+        {
+			this.teleportationPanel = teleportationPanel;
+			//this.teleportationPanel.SetActive(true);
+        }
 
 
 		//-------------------------------------------------

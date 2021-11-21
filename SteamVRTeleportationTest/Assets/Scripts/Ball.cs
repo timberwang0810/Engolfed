@@ -114,6 +114,7 @@ public class Ball : MonoBehaviour
         {
             wasOOB = false;
             SoundManager.S.MakePuttSound();
+            TutorialManager.S?.OnBallStruck();
 
             num_strokes += 1;
             UI.UpdateStrokeCount(num_strokes);
