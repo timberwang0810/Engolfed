@@ -7,6 +7,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+
 
 namespace Valve.VR.InteractionSystem
 {
@@ -115,6 +117,14 @@ namespace Valve.VR.InteractionSystem
 		public SteamVR_Overlay cameraOverlay;
 		public GameObject golfball;
 		public TeleportPoint puttTeleportPoint;
+
+		public GameObject tempPanel;
+		public Text tempText;
+
+		public bool isTutorial;
+		private GameObject teleportationPanel;
+		private bool hasTeleported = false;
+		private bool hasTeleportedToBall = false;
 
 		SteamVR_Events.Action chaperoneInfoInitializedAction;
 
@@ -862,6 +872,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void TeleportPlayer()
 		{
+			if (isTutorial && teleportationPanel == null) return;
 			teleporting = false;
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
@@ -905,7 +916,17 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = teleportPosition + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
-
+				if (!hasTeleported)
+                {
+					teleportationPanel.SetActive(false);
+					hasTeleported = true;
+					if (!hasTeleportedToBall)
+                    {
+						tempText.text = "Now teleport to the ball and finish the course!";
+						StartCoroutine(FlashTempPanel());
+                    }
+                }
+								
 				if (player.leftHand.currentAttachedObjectInfo.HasValue)
                     player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
                 if (player.rightHand.currentAttachedObjectInfo.HasValue)
@@ -917,6 +938,16 @@ namespace Valve.VR.InteractionSystem
 			}
 
 			Teleport.Player.Send( pointedAtTeleportMarker );
+		}
+
+		private IEnumerator FlashTempPanel()
+        {
+			tempPanel.GetComponent<Image>().CrossFadeAlpha(1, 2, false);
+			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds(4);
+			tempPanel.GetComponent<Image>().CrossFadeAlpha(0, 2, false);
+			yield return new WaitForSeconds(2);
+			tempText.text = "";
 		}
 
 		private IEnumerator DoDash(Vector3 startPoint, Vector3 endPoint)
@@ -1115,8 +1146,10 @@ namespace Valve.VR.InteractionSystem
 
 		public int TeleportBehindBall(Vector3 hmdLookDir, float ballOffsetScale)
         {
-			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position))
+			Debug.Log("called: 1");
+			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position) && (!isTutorial || teleportationPanel != null))
 			{
+				Debug.Log("called: 2");
 				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
 				
 				hmdLookDir.y = 0;
@@ -1126,6 +1159,14 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = golfball.transform.position - ballOffset + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
+				if (!hasTeleportedToBall)
+				{
+					teleportationPanel.SetActive(false);
+					hasTeleported = true;
+					hasTeleportedToBall = true;
+					tempText.text = "Hit the ball into the hole!";
+					StartCoroutine(FlashTempPanel());
+				}
 
 				if (player.leftHand.currentAttachedObjectInfo.HasValue)
 					player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
@@ -1135,6 +1176,12 @@ namespace Valve.VR.InteractionSystem
 
 			return 0;
 		}
+
+		public void LoadTutorialPanel(GameObject teleportationPanel)
+        {
+			this.teleportationPanel = teleportationPanel;
+			//this.teleportationPanel.SetActive(true);
+        }
 
 
 		//-------------------------------------------------

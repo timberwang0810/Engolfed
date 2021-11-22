@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Valve.VR;
 
@@ -15,9 +16,13 @@ public class ChangeLevelTrigger : MonoBehaviour
     public GameObject backFence;
     public GameObject logoScreen;
 
+    public GameObject tempPanel;
+    public Text tempText;
+
     private void Start()
     {
         hole.SetActive(false);
+        tempPanel.GetComponent<Image>().canvasRenderer.SetAlpha(0);
         playerCam = player.GetComponentInChildren<Camera>();
     }
     private void OnTriggerEnter(Collider other)
@@ -42,6 +47,16 @@ public class ChangeLevelTrigger : MonoBehaviour
 
     private IEnumerator LevelTransitionOld()
     {
+        tempText.text = "Now check your score! Don't forget to put the scorecard away also";
+        int numScorecarded = TutorialManager.S.numScorecarded;
+        tempPanel.GetComponent<Image>().CrossFadeAlpha(1, 2, false);
+        yield return new WaitForSeconds(2);
+        while (TutorialManager.S.numScorecarded == numScorecarded)
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
+        yield return new WaitForSeconds(1.0f);
+        tempPanel.SetActive(false);
         // TODO: Hole "animation"
         hole.GetComponent<AudioSource>().Play();
         hole.SetActive(true);
