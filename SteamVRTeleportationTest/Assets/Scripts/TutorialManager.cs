@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR.InteractionSystem;
+using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager S;
@@ -12,6 +13,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool hasSwung = false;
     public bool hasScorecarded = false;
+    public int numScorecarded = 0;
 
     public Teleport teleport;
 
@@ -54,7 +56,8 @@ public class TutorialManager : MonoBehaviour
 
     public void OnScorecardShown()
     {
-        if (hasScorecarded) return;
+        numScorecarded++;
+        if (!hasSwung || hasScorecarded) return;
         hasScorecarded = true;
         StartCoroutine(PanelTransitionCoroutine(scorecardPanel, teleportationPanel));
         teleport.LoadTutorialPanel(teleportationPanel);

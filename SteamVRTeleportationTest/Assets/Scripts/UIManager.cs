@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     {
         //menuPanel.SetActive(true);
         //inGameUI.SetActive(false);
-        strokeCount.text = "Stroke 1";
+        strokeCount.text = "0";
     }
 
     public void OnGameStart()
@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStrokeCount(int stroke)
     {
-        strokeCount.text = "Stroke " + stroke;
+        strokeCount.text = stroke.ToString();
     }
 
     public void ShowWinScreen()
