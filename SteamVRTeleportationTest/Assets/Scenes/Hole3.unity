@@ -16950,7 +16950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009940129d07c1a4e80fb30ed2cfd1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
+  force: 8
   speed: 0
   drag: 0.01
   floorHeight: -0.28
@@ -17084,7 +17084,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.025
   m_Center: {x: 0.0000000013969839, y: 4.6566123e-10, z: 4.6566123e-10}
 --- !u!23 &1115948389
 MeshRenderer:
@@ -22661,6 +22661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: 0.36230645
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141520076493215251, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5916537425428644855, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}

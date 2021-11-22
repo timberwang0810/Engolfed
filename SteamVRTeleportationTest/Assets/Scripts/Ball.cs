@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float force = 3;
+    public float force = 1e-4f;
     public float speed = 0.0f;
     public float drag = 0.01f;
     public float floorHeight = -0.3f;
@@ -119,28 +119,53 @@ public class Ball : MonoBehaviour
             num_strokes += 1;
             UI.UpdateStrokeCount(num_strokes);
 
-            //Vector3 dir = collision.contacts[0].point - transform.position;
-            //dir = -dir.normalized;
-            //StartCoroutine(TurnOffClubCollision(collision));
-            //GetComponent<Rigidbody>().AddForce(dir * force);
+            Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
+            speed = vel_vec.magnitude;
+            direction = vel_vec / speed;
+
+            direction = direction.normalized;
+            StartCoroutine(TurnOffClubCollision(other));
+            GetComponent<Rigidbody>().AddForce(vel_vec * force, ForceMode.Impulse);
 
             //GetComponent<Rigidbody>().velocity = other.gameObject.GetComponent<Club>().GetClubVelocity();
-            Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
+            //Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
             //speed = vel_vec.magnitude;
             //direction = vel_vec / speed;
             //direction.y = 0;
 
-            vel_vec *= speedScale;
-            GetComponent<Rigidbody>().velocity = vel_vec;
+            //vel_vec *= speedScale;
+            //GetComponent<Rigidbody>().velocity = vel_vec;
 
             ballPos.Clear();
         }
-    }
+    } 
 
-    private IEnumerator TurnOffClubCollision(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(2);
-        collision.gameObject.GetComponent<Collider>().enabled = true;
+        Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("ClubHead"))
+        {
+            wasOOB = false;
+            SoundManager.S.MakePuttSound();
+            TutorialManager.S?.OnBallStruck();
+
+            num_strokes += 1;
+            UI.UpdateStrokeCount(num_strokes);
+
+            Vector3 dir = collision.contacts[0].point - transform.position;
+            dir = -dir.normalized;
+            StartCoroutine(TurnOffClubCollision(collision));
+            GetComponent<Rigidbody>().AddForce(dir * force);
+
+            ballPos.Clear();
+        }
+    }*/
+
+    private IEnumerator TurnOffClubCollision(Collider other)
+    {
+        other.gameObject.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        other.gameObject.GetComponent<Collider>().enabled = true;
     }
 }
