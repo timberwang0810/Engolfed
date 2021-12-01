@@ -30467,6 +30467,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328159414049984, guid: 073476f0975a9224789047f9492ce20b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328159414049984, guid: 073476f0975a9224789047f9492ce20b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1656357974561730, guid: 073476f0975a9224789047f9492ce20b, type: 3}
       propertyPath: m_Name
       value: JackInTheBox
