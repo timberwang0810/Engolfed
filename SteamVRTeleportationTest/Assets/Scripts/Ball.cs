@@ -119,22 +119,22 @@ public class Ball : MonoBehaviour
             num_strokes += 1;
             UI.UpdateStrokeCount(num_strokes);
 
-            Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
+            /*Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
             speed = vel_vec.magnitude;
             direction = vel_vec / speed;
 
             direction = direction.normalized;
             StartCoroutine(TurnOffClubCollision(other));
-            GetComponent<Rigidbody>().AddForce(vel_vec * force, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(vel_vec * force, ForceMode.Impulse);*/
 
-            //GetComponent<Rigidbody>().velocity = other.gameObject.GetComponent<Club>().GetClubVelocity();
-            //Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
-            //speed = vel_vec.magnitude;
-            //direction = vel_vec / speed;
-            //direction.y = 0;
+            GetComponent<Rigidbody>().velocity = other.gameObject.GetComponent<Club>().GetClubVelocity();
+            Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
+            speed = vel_vec.magnitude;
+            direction = vel_vec / speed;
+            direction.y = 0;
 
-            //vel_vec *= speedScale;
-            //GetComponent<Rigidbody>().velocity = vel_vec;
+            vel_vec *= speedScale;
+            GetComponent<Rigidbody>().velocity = vel_vec;
 
             ballPos.Clear();
         }
