@@ -17398,7 +17398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285dfbef6dc79d547857a375843f820d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Hole3
+  nextLevelName: Hole2
   isLevelCompleted: 0
   player: {fileID: 1979601573}
   holeDestination: {fileID: 645489257}
@@ -25852,6 +25852,8 @@ MonoBehaviour:
   holeFrustrationSound: {fileID: 8300000, guid: d01e0e13becf3f8458f8c05c32d93894,
     type: 3}
   exitLevelSound: {fileID: 8300000, guid: 8f1ac41af52e0eb4e992e4ea2be697eb, type: 3}
+  exitDoorOpen: {fileID: 0}
+  exitDoorClose: {fileID: 0}
   creepyMusicBoxBGM: {fileID: 8300000, guid: 62b5576d27df5c44fa733db684f219a9, type: 3}
   bgm_music: {fileID: 8300000, guid: 68913b90e306fde4cb01783fd90d8c3f, type: 3}
   charge_music: {fileID: 8300000, guid: 406767e6d506b6a448a9724f4eaf9ada, type: 3}

@@ -22,6 +22,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip scoreCard;
     public AudioClip holeFrustrationSound;
     public AudioClip exitLevelSound;
+    public AudioClip exitDoorOpen;
+    public AudioClip exitDoorClose;
 
     [Header("BGM Clips")]
     public AudioClip creepyMusicBoxBGM;
@@ -150,5 +152,15 @@ public class SoundManager : MonoBehaviour
     public void MakeExitLevelSound()
     {
         audio.PlayOneShot(exitLevelSound);
+    }
+
+    public void MakeExitDoorOpenSound()
+    {
+        audio.PlayOneShot(exitDoorOpen);
+    }
+
+    public void MakeExitDoorCloseSound()
+    {
+        audio.PlayOneShot(exitDoorClose);
     }
 }

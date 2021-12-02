@@ -81,6 +81,7 @@ public class ChangeLevelTrigger : MonoBehaviour
             yield return null;
         }
         SoundManager.S.MakeHoleFrustrationSound();
+        GameObject.Find("LeftHand").SetActive(false);
         yield return new WaitForSeconds(3.0f);
         SoundManager.S.MakeExitLevelSound();
         SteamVR_Fade.Start(Color.black, 3.0f);

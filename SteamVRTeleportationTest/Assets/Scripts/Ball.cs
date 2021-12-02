@@ -81,7 +81,7 @@ public class Ball : MonoBehaviour
         }
 
         // Near flag check
-        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 1)
+        if (GetComponent<Rigidbody>().velocity.magnitude != 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 0.2)
         {
             if (GameManager.S) GameManager.S.OnBallCaptured();
             else if (!levelComplete)
