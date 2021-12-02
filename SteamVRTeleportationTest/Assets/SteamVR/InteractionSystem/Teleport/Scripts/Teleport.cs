@@ -255,6 +255,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			Hand oldPointerHand = pointerHand;
 			Hand newPointerHand = null;
+			Debug.Log("velocity 0: " + golfball.GetComponent<Rigidbody>().velocity);
 
 			foreach ( Hand hand in player.hands )
 			{
@@ -272,6 +273,8 @@ namespace Valve.VR.InteractionSystem
 				if ( WasTeleportButtonPressed( hand ) )
 				{
 					newPointerHand = hand;
+					Debug.Log("velocity 2: " + golfball.GetComponent<Rigidbody>().velocity);
+
 				}
 			}
 
@@ -399,6 +402,8 @@ namespace Valve.VR.InteractionSystem
 
 				if ( showPlayAreaMarker )
 				{
+					Debug.Log("velocity 3: " + golfball.GetComponent<Rigidbody>().velocity);
+
 					//Show the play area marker if this is a teleport area
 					TeleportArea teleportArea = pointedAtTeleportMarker as TeleportArea;
 					if ( teleportArea != null && !teleportArea.locked && playAreaPreviewTransform != null )
@@ -426,6 +431,8 @@ namespace Valve.VR.InteractionSystem
 						playAreaPreviewTransform.position = pointedAtPosition + offsetToUse;
 
 						showPlayAreaPreview = true;
+						Debug.Log("velocity 4: " + golfball.GetComponent<Rigidbody>().velocity);
+
 					}
 				}
 
@@ -830,7 +837,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void TryTeleportPlayer()
 		{
-			if ( visible && !teleporting )
+			if ( visible && !teleporting && (!isTutorial || teleportationPanel != null))
 			{
 				if ( pointedAtTeleportMarker != null && pointedAtTeleportMarker.locked == false )
 				{
@@ -871,8 +878,8 @@ namespace Valve.VR.InteractionSystem
 
 		//-------------------------------------------------
 		private void TeleportPlayer()
-		{
-			if (isTutorial && teleportationPanel == null) return;
+        {
+
 			teleporting = false;
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
@@ -1147,6 +1154,7 @@ namespace Valve.VR.InteractionSystem
 		public int TeleportBehindBall(Vector3 hmdLookDir, float ballOffsetScale)
         {
 			Debug.Log("called: 1");
+			Debug.Log("velocity 1: " + golfball.GetComponent<Rigidbody>().velocity);
 			if (!puttTeleportPoint.ShouldActivate(player.trackingOriginTransform.position) && (!isTutorial || teleportationPanel != null))
 			{
 				Debug.Log("called: 2");

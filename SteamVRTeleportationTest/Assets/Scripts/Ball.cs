@@ -105,6 +105,7 @@ public class Ball : MonoBehaviour
         // OOB check
         else if (transform.position.y < floorHeight && ballPos.Count > 0)
         {
+            Debug.Log("OOB CHECK");
             wasOOB = true;
             SoundManager.S.MakeOOBSound();
 

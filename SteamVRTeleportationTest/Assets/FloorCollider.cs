@@ -49,7 +49,7 @@ public class FloorCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Club"))
         {
             //Club clubScript = other.gameObject.GetComponent<Club>();
-            Debug.Log("YES " + Mathf.Abs(oldPosWorld.y - handObject.transform.position.y));
+            //Debug.Log("YES " + Mathf.Abs(oldPosWorld.y - handObject.transform.position.y));
             GameObject clubHead = other.gameObject.transform.GetChild(0).gameObject;
             clubHead.transform.localPosition = new Vector3(clubHead.transform.localPosition.x,
                                                                     oldPos.y + (Mathf.Abs(oldPosWorld.y- handObject.transform.position.y)* 2.5f),
