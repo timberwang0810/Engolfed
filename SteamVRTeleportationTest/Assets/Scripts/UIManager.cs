@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject deathScreen;
     public GameObject winScreen;
+    public GameObject levelScoreScreen;
     public TextMeshProUGUI strokeCount;
 
     public GameObject scorecardUI;
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
         //menuPanel.SetActive(true);
         //inGameUI.SetActive(false);
         strokeCount.text = "0";
+        levelScoreScreen.SetActive(false);
     }
 
     public void OnGameStart()
@@ -61,6 +63,11 @@ public class UIManager : MonoBehaviour
         winScreen.SetActive(false);
     }
 
+    public void ShowLevelScorecardScreen()
+    {
+        levelScoreScreen.SetActive(true);
+        levelScoreScreen.GetComponentInChildren<TextMeshProUGUI>().text = "Total Stroke:\n" + strokeCount.text;
+    }
     //public IEnumerator FadeFromBlack()
     //{
     //    inGameUI.SetActive(false);
