@@ -26,6 +26,7 @@ public class Ball : MonoBehaviour
     private Animator anim;
 
     private bool levelComplete = false;
+    public bool laterLevel = false;
 
     // Start is called before the first frame update
     void Start()
@@ -79,32 +80,37 @@ public class Ball : MonoBehaviour
             lineRenderer.SetPosition(i, ballPos[i]);
         }
 
-        if (transform.position.y < floorHeight && ballPos.Count > 0)
+        // Near flag check
+        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 1)
         {
-            Debug.Log(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2);
-            if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2)
+            if (GameManager.S) GameManager.S.OnBallCaptured();
+            else if (!levelComplete)
             {
-                if (GameManager.S) GameManager.S.OnBallCaptured();
-                else if(!levelComplete)
+                levelComplete = true;
+                if(!laterLevel)
                 {
-                    levelComplete = true;
                     GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
-                    GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
-                    anim.SetTrigger("Open");
-                    SoundManager.S.MakeChipInSounds();
-                    GameObject.Find("backFence").SetActive(false);
                 }
-                //Destroy(this.gameObject, 0.1f);
+                else
+                {
+                    GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTriggerLater>().isLevelCompleted = true;
+                }
+                GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
+                anim.SetTrigger("Open");
+                SoundManager.S.MakeChipInSounds();
+                GameObject.Find("backFence").SetActive(false);
             }
-            else
-            {
-                wasOOB = true;
-                SoundManager.S.MakeOOBSound();
+            //Destroy(this.gameObject, 0.1f);
+        }
+        // OOB check
+        else if (transform.position.y < floorHeight && ballPos.Count > 0)
+        {
+            wasOOB = true;
+            SoundManager.S.MakeOOBSound();
 
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                transform.position = ballPos[0];
-            }
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            transform.position = ballPos[0];
         }
     }
 

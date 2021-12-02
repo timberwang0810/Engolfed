@@ -41,6 +41,7 @@ namespace Valve.VR.InteractionSystem
             Camera hmdCam = GameObject.Find("VRCamera").GetComponent<Camera>();
             Debug.Log(hmdCam.ToString());
             hmdLookDir = hmdCam.transform.forward;
+            teleport = GameObject.Find("Teleporting").GetComponent<Teleport>();
             teleport.TeleportBehindBall(hmdLookDir, ballOffsetScale);
             Debug.Log(hmdLookDir.ToString());
         }

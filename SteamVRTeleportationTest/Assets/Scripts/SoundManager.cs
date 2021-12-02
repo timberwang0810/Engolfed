@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip gateOpen;
     public AudioClip scoreCard;
     public AudioClip holeFrustrationSound;
+    public AudioClip exitLevelSound;
 
     [Header("BGM Clips")]
     public AudioClip creepyMusicBoxBGM;
@@ -144,5 +145,10 @@ public class SoundManager : MonoBehaviour
     {
         audio.PlayOneShot(chipIn);
         audio.PlayOneShot(gateOpen);
+    }
+
+    public void MakeExitLevelSound()
+    {
+        audio.PlayOneShot(exitLevelSound);
     }
 }
