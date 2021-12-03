@@ -104,7 +104,7 @@ public class Ball : MonoBehaviour
             //Destroy(this.gameObject, 0.1f);
         }*/
         // OOB check
-        if (transform.position.y < floorHeight && ballPos.Count > 0)
+        if (transform.position.y < floorHeight && ballPos.Count > 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) > 0.5)
         {
             Debug.Log("OOB CHECK");
             wasOOB = true;

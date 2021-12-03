@@ -16150,15 +16150,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Total Stroke: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b4c76e61cc1f99945bf4d29fc07748c2, type: 2}
+  m_sharedMaterial: {fileID: 4746712474237044506, guid: b4c76e61cc1f99945bf4d29fc07748c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294246655
+  m_fontColor: {r: 1, g: 0, b: 0.9590912, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -30999,15 +31000,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5697c26ee2ef0c848996640f6a3d3432, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 6dc0a21888c90e544b156d1d06562c82, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -32912,7 +32913,7 @@ PrefabInstance:
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.87
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
@@ -32922,37 +32923,37 @@ PrefabInstance:
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.102254644
+      value: -0.22626588
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.029915927
+      value: 0.032285966
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99330175
+      value: 0.9707684
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04472968
+      value: -0.07328051
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.746
+      value: 7.335
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 168.081
+      value: 206.596
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.946
+      value: 5.546
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46f092c266760db46bcb7b005e9ff6ec, type: 3}
