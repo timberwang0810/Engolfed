@@ -9740,7 +9740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &317706742
 MeshRenderer:
@@ -11679,7 +11679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b837ca13217b224aa6df1ffb9384b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPanel: {fileID: 15172328}
+  menuPanel: {fileID: 0}
   inGameUI: {fileID: 304931816}
   deathScreen: {fileID: 621471814}
   winScreen: {fileID: 1214352549}
@@ -16288,6 +16288,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 507022858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &507022860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 507022858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &507039969
 GameObject:
   m_ObjectHideFlags: 0
@@ -20248,7 +20254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &622957725
 MeshRenderer:
@@ -21033,9 +21039,11 @@ GameObject:
   - component: {fileID: 644574799}
   - component: {fileID: 644574798}
   - component: {fileID: 644574797}
-  m_Layer: 0
+  - component: {fileID: 644574801}
+  - component: {fileID: 644574800}
+  m_Layer: 13
   m_Name: Object_39 (1)
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21118,6 +21126,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644574795}
   m_Mesh: {fileID: 1020407468263281933, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &644574800
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644574795}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &644574801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644574795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &644772334
 GameObject:
   m_ObjectHideFlags: 0
@@ -24447,7 +24487,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &751533370
 MeshRenderer:
@@ -28069,9 +28109,11 @@ GameObject:
   - component: {fileID: 870018543}
   - component: {fileID: 870018542}
   - component: {fileID: 870018541}
-  m_Layer: 0
+  - component: {fileID: 870018545}
+  - component: {fileID: 870018544}
+  m_Layer: 13
   m_Name: Object_39 (2)
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -28154,6 +28196,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870018539}
   m_Mesh: {fileID: 1020407468263281933, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &870018544
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870018539}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &870018545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870018539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &870162520
 GameObject:
   m_ObjectHideFlags: 0
@@ -49155,6 +49229,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6458150708475204606, guid: 47f34b4ee939cc34ca69c230f7f40e62,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f34b4ee939cc34ca69c230f7f40e62, type: 3}
 --- !u!1 &1591304658
@@ -55007,7 +55086,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1795604852
 MeshRenderer:
@@ -55418,9 +55497,11 @@ GameObject:
   - component: {fileID: 1810237717}
   - component: {fileID: 1810237716}
   - component: {fileID: 1810237715}
-  m_Layer: 0
+  - component: {fileID: 1810237720}
+  - component: {fileID: 1810237719}
+  m_Layer: 13
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -55503,6 +55584,38 @@ Transform:
   m_Father: {fileID: 543450651766723937}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -89.98, y: 270, z: 0}
+--- !u!114 &1810237719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810237714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &1810237720
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810237714}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &1810998143
 GameObject:
   m_ObjectHideFlags: 0
@@ -69138,12 +69251,12 @@ Transform:
   - {fileID: 4344178164957713193}
   - {fileID: 2505657745094339242}
   - {fileID: 7228279001383172567}
-  - {fileID: 8133388765890680500}
   - {fileID: 770884935449562766}
   - {fileID: 1795604851}
   - {fileID: 317706741}
   - {fileID: 622957724}
   - {fileID: 751533369}
+  - {fileID: 8133388765890680500}
   m_Father: {fileID: 9176063069190127472}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70274,7 +70387,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774390505865847105
 GameObject:
@@ -73078,9 +73191,11 @@ GameObject:
   - component: {fileID: 3995110921418035249}
   - component: {fileID: 7418328531176220621}
   - component: {fileID: 1290415188452553653}
-  m_Layer: 0
+  - component: {fileID: 1290415188452553654}
+  - component: {fileID: 1290415188452553655}
+  m_Layer: 13
   m_Name: Object_35
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -73099,6 +73214,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3604524270872039868, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!114 &1290415188452553654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290415188452553652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &1290415188452553655
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290415188452553652}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &1310901952231905122
 GameObject:
   m_ObjectHideFlags: 0
@@ -74215,9 +74362,11 @@ GameObject:
   - component: {fileID: 9118248806045503965}
   - component: {fileID: 9195495462590505739}
   - component: {fileID: 1548414649515958861}
-  m_Layer: 0
+  - component: {fileID: 1548414649515958863}
+  - component: {fileID: 1548414649515958862}
+  m_Layer: 13
   m_Name: Object_56
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -74236,6 +74385,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5518435112200737519, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &1548414649515958862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548414649515958860}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1548414649515958863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548414649515958860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!4 &1558460785501564217
 Transform:
   m_ObjectHideFlags: 0
@@ -75323,9 +75504,11 @@ GameObject:
   - component: {fileID: 320880940747518663}
   - component: {fileID: 5333032231172848180}
   - component: {fileID: 1720839353663663421}
-  m_Layer: 0
+  - component: {fileID: 1720839353663663423}
+  - component: {fileID: 1720839353663663422}
+  m_Layer: 13
   m_Name: Object_60
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -75344,6 +75527,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1030951672374182684, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &1720839353663663422
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720839353663663420}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &1720839353663663423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720839353663663420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!4 &1742841153320252624
 Transform:
   m_ObjectHideFlags: 0
@@ -76281,9 +76496,11 @@ GameObject:
   - component: {fileID: 6904411643422854567}
   - component: {fileID: 2877505106608951750}
   - component: {fileID: 2091768636482564509}
-  m_Layer: 0
+  - component: {fileID: 2091768636482564511}
+  - component: {fileID: 2091768636482564510}
+  m_Layer: 13
   m_Name: Object_68
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -76302,6 +76519,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6849603653870079895, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &2091768636482564510
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091768636482564508}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2091768636482564511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091768636482564508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!4 &2096007246231180291
 Transform:
   m_ObjectHideFlags: 0
@@ -76842,9 +77091,11 @@ GameObject:
   - component: {fileID: 6133067325689775007}
   - component: {fileID: 4978722212734269138}
   - component: {fileID: 2264840539086929010}
-  m_Layer: 0
+  - component: {fileID: 2264840539086929012}
+  - component: {fileID: 2264840539086929011}
+  m_Layer: 13
   m_Name: Object_39
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -76863,6 +77114,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1020407468263281933, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &2264840539086929011
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264840539086929009}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &2264840539086929012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264840539086929009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!4 &2281310192543052805
 Transform:
   m_ObjectHideFlags: 0
@@ -82126,9 +82409,11 @@ GameObject:
   - component: {fileID: 7447487535547760319}
   - component: {fileID: 8537367235615506528}
   - component: {fileID: 3657999390524189234}
-  m_Layer: 0
+  - component: {fileID: 3657999390524189235}
+  - component: {fileID: 3657999390524189236}
+  m_Layer: 13
   m_Name: Object_37
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -82147,6 +82432,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3530819950598644734, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!114 &3657999390524189235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657999390524189233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &3657999390524189236
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657999390524189233}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &3661062339838514788
 GameObject:
   m_ObjectHideFlags: 0
@@ -84454,9 +84771,11 @@ GameObject:
   - component: {fileID: 1798649258885141182}
   - component: {fileID: 6490860490452032838}
   - component: {fileID: 4196271491397584201}
-  m_Layer: 0
+  - component: {fileID: 4196271491397584202}
+  - component: {fileID: 4196271491397584203}
+  m_Layer: 13
   m_Name: Object_24
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -84475,6 +84794,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3304173957634012018, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!114 &4196271491397584202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196271491397584200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &4196271491397584203
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196271491397584200}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!4 &4220353357368983567
 Transform:
   m_ObjectHideFlags: 0
@@ -91130,9 +91481,11 @@ GameObject:
   - component: {fileID: 2807580924443781705}
   - component: {fileID: 2823549711429952059}
   - component: {fileID: 6054137860968168796}
-  m_Layer: 0
+  - component: {fileID: 6054137860968168798}
+  - component: {fileID: 6054137860968168797}
+  m_Layer: 13
   m_Name: Object_57
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -91151,6 +91504,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 425355039099183702, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!54 &6054137860968168797
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054137860968168795}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &6054137860968168798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054137860968168795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!4 &6056989761643598765
 Transform:
   m_ObjectHideFlags: 0
@@ -96997,9 +97382,11 @@ GameObject:
   - component: {fileID: 6534930283398933034}
   - component: {fileID: 1110721231562187920}
   - component: {fileID: 7186059109540432311}
-  m_Layer: 0
+  - component: {fileID: 7186059109540432312}
+  - component: {fileID: 7186059109540432313}
+  m_Layer: 13
   m_Name: Object_7
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -97018,6 +97405,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4294552576481311072, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!114 &7186059109540432312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186059109540432310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &7186059109540432313
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186059109540432310}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!23 &7187823219411028807
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97681,9 +98100,11 @@ GameObject:
   - component: {fileID: 5173412530455930555}
   - component: {fileID: 6494633248640713154}
   - component: {fileID: 7391058881933741662}
-  m_Layer: 0
+  - component: {fileID: 7391058881933741663}
+  - component: {fileID: 7391058881933741664}
+  m_Layer: 13
   m_Name: Object_65
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -97702,6 +98123,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7876994014999037460, guid: 06d912441c971ae499aa00d4c07ab7f0, type: 3}
+--- !u!114 &7391058881933741663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391058881933741661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b50b5987bf337044a0a366d8a9df3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 507022860}
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
+--- !u!54 &7391058881933741664
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391058881933741661}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!23 &7408700650366013146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97854,9 +98307,11 @@ GameObject:
   - component: {fileID: 678604850403109882}
   - component: {fileID: 7408700650366013146}
   - component: {fileID: 7435842489336806821}
-  m_Layer: 0
+  - component: {fileID: 7435842489336806823}
+  - component: {fileID: 7435842489336806822}
+  m_Layer: 13
   m_Name: Object_55
-  m_TagString: Untagged
+  m_TagString: FloorCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -101049,7 +101504,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559192137512699969}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8163786301270818938
 Transform:
