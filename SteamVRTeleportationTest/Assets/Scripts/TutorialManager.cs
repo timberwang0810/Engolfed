@@ -15,6 +15,8 @@ public class TutorialManager : MonoBehaviour
     public bool hasSwung = false;
     public bool hasScorecarded = false;
     public bool hasScorecardReturned = false;
+
+    private bool isTransitioning = false;
     public int numScorecarded = 0;
 
     public Teleport teleport;
@@ -32,6 +34,7 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator PanelTransitionCoroutine(GameObject from, GameObject to)
     {
+        isTransitioning = true;
         if (from.activeSelf)
         {
             from.GetComponent<Image>().CrossFadeAlpha(0, 2, false);
@@ -42,7 +45,8 @@ public class TutorialManager : MonoBehaviour
         to.GetComponent<Image>().canvasRenderer.SetAlpha(0);
         to.SetActive(true);
         to.GetComponent<Image>().CrossFadeAlpha(1, 2, false);
-        from.SetActive(false);
+        isTransitioning = false;
+        //from.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -52,7 +56,7 @@ public class TutorialManager : MonoBehaviour
 
     public void OnBallStruck()
     {
-        if (hasSwung) return;
+        if (hasSwung || isTransitioning) return;
         hasSwung = true;
         StartCoroutine(PanelTransitionCoroutine(golfSwingPanel, scorecardPanel));
     }
@@ -60,14 +64,14 @@ public class TutorialManager : MonoBehaviour
     public void OnScorecardShown()
     {
         numScorecarded++;
-        if (!hasSwung || hasScorecarded) return;
+        if (!hasSwung || hasScorecarded || isTransitioning) return;
         hasScorecarded = true;
         StartCoroutine(PanelTransitionCoroutine(scorecardPanel, returnCardPanel));
     }
 
     public void OnScorecardReturned()
     {
-        if (!hasSwung || !hasScorecarded || hasScorecardReturned) return;
+        if (!hasSwung || !hasScorecarded || hasScorecardReturned || isTransitioning) return;
         hasScorecardReturned = true;
         StartCoroutine(PanelTransitionCoroutine(returnCardPanel, teleportationPanel));
         teleport.LoadTutorialPanel(teleportationPanel);
