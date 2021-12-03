@@ -923,7 +923,7 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = teleportPosition + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
-				if (!hasTeleported)
+				if (isTutorial && !hasTeleported)
                 {
 					teleportationPanel.SetActive(false);
 					hasTeleported = true;
@@ -1167,7 +1167,7 @@ namespace Valve.VR.InteractionSystem
 				Vector3 endPoint = golfball.transform.position - ballOffset + playerFeetOffset;
 
 				StartCoroutine(DoDash(startPoint, endPoint));
-				if (!hasTeleportedToBall)
+				if (isTutorial && !hasTeleportedToBall)
 				{
 					teleportationPanel.SetActive(false);
 					hasTeleported = true;
