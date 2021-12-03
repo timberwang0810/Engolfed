@@ -11684,7 +11684,7 @@ MonoBehaviour:
   deathScreen: {fileID: 621471814}
   winScreen: {fileID: 1214352549}
   levelScoreScreen: {fileID: 1873128096}
-  strokeCount: {fileID: 818866427}
+  strokeCount: {fileID: 1590400090}
   scorecardUI: {fileID: 1032222987}
 --- !u!4 &349881206
 Transform:
@@ -14761,7 +14761,7 @@ Transform:
   - {fileID: 88152508}
   - {fileID: 407809592}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &446245622
 GameObject:
@@ -21025,7 +21025,7 @@ Transform:
   - {fileID: 462080329}
   - {fileID: 532722440}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644574795
 GameObject:
@@ -32030,7 +32030,7 @@ Transform:
   - {fileID: 900596003}
   - {fileID: 1928160581}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!1 &989074379
 GameObject:
@@ -33355,7 +33355,7 @@ PrefabInstance:
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1082671938134863801, guid: 46f092c266760db46bcb7b005e9ff6ec,
         type: 3}
@@ -39819,10 +39819,9 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 61.74, y: 18.175, z: -1.22}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children:
-  - {fileID: 1236713512}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1232116505
 GameObject:
@@ -40080,14 +40079,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236713510}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.011999765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 61.74, y: 18.139, z: -1.22}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1098566972}
   - {fileID: 946737862}
-  m_Father: {fileID: 1231845797}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239750067
 GameObject:
@@ -46954,7 +46953,7 @@ MonoBehaviour:
   childScream: {fileID: 8300000, guid: c8cc33abafea6264aab60ad43f0dcefa, type: 3}
   chipIn: {fileID: 8300000, guid: 33bb6842955d86f438705b00779bc671, type: 3}
   gateOpen: {fileID: 8300000, guid: a8122c75889077046a8e1ce8b0c66ff2, type: 3}
-  scoreCard: {fileID: 0}
+  scoreCard: {fileID: 8300000, guid: 2198c6e5abbedd94a80171b201b6870c, type: 3}
   holeFrustrationSound: {fileID: 0}
   exitLevelSound: {fileID: 8300000, guid: 8f1ac41af52e0eb4e992e4ea2be697eb, type: 3}
   exitDoorOpen: {fileID: 0}
@@ -49236,6 +49235,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f34b4ee939cc34ca69c230f7f40e62, type: 3}
+--- !u!114 &1590400090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2337751367967358568, guid: 47f34b4ee939cc34ca69c230f7f40e62,
+    type: 3}
+  m_PrefabInstance: {fileID: 1590400089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1591304658
 GameObject:
   m_ObjectHideFlags: 0
@@ -50069,7 +50080,7 @@ Transform:
   - {fileID: 1959978189}
   - {fileID: 1220959102}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1610750112
 PrefabInstance:
@@ -54627,7 +54638,7 @@ Transform:
   - {fileID: 1868410802}
   - {fileID: 265084494}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!1 &1775396655
 GameObject:
@@ -57430,7 +57441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1869840944
 Transform:
   m_ObjectHideFlags: 0
@@ -57460,8 +57471,8 @@ MonoBehaviour:
   gameState: 0
   objects: []
   boundaryPadding: 0.1
-  player: {fileID: 0}
-  holeMonster: {fileID: 0}
+  player: {fileID: 324724634}
+  holeMonster: {fileID: 780492915}
   gameScene: []
 --- !u!1 &1870307580
 GameObject:
@@ -69192,7 +69203,7 @@ Transform:
   - {fileID: 713018248}
   - {fileID: 433344364}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653228230280
 Transform:
@@ -98307,8 +98318,6 @@ GameObject:
   - component: {fileID: 678604850403109882}
   - component: {fileID: 7408700650366013146}
   - component: {fileID: 7435842489336806821}
-  - component: {fileID: 7435842489336806823}
-  - component: {fileID: 7435842489336806822}
   m_Layer: 13
   m_Name: Object_55
   m_TagString: FloorCollider
