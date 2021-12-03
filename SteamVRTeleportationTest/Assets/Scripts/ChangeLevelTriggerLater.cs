@@ -16,7 +16,7 @@ public class ChangeLevelTriggerLater : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") /*&& isLevelCompleted*/)
+        if (other.gameObject.CompareTag("Player") && isLevelCompleted)
         {
             Debug.Log("IN");
             gameObject.GetComponent<Collider>().enabled = false;

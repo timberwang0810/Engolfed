@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
     public GameObject flag;
 
     public UIManager UI;
-    private int num_strokes = 1;
+    private int num_strokes = 0;
 
     private Vector3 direction;
 
@@ -81,30 +81,30 @@ public class Ball : MonoBehaviour
         }
 
         // Near flag check
-        if (GetComponent<Rigidbody>().velocity.magnitude != 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 0.2)
+        /*if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 0.3)
         {
-            //if (GameManager.S) GameManager.S.OnBallCaptured();
-            //else if (!levelComplete)
-            //{
-            //    levelComplete = true;
-            //    if(!laterLevel)
-            //    {
-            //        GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
-            //    }
-            //    else
-            //    {
-            //        GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTriggerLater>().isLevelCompleted = true;
-            //    }
-            //    UIManager.S.ShowLevelScorecardScreen();
-            //    GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
-            //    anim.SetTrigger("Open");
-            //    SoundManager.S.MakeChipInSounds();
-            //    GameObject.Find("backFence").SetActive(false);
-            //}
+            if (GameManager.S) GameManager.S.OnBallCaptured();
+            else if (!levelComplete)
+            {
+                levelComplete = true;
+                if(!laterLevel)
+                {
+                    GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTrigger>().isLevelCompleted = true;
+                }
+                else
+                {
+                    GameObject.Find("ColliderHolder").GetComponent<ChangeLevelTriggerLater>().isLevelCompleted = true;
+                }
+                UIManager.S.ShowLevelScorecardScreen();
+                GameObject.Find("ColliderHolder").GetComponent<AudioSource>().Play();
+                anim.SetTrigger("Open");
+                SoundManager.S.MakeChipInSounds();
+                GameObject.Find("backFence").SetActive(false);
+            }
             //Destroy(this.gameObject, 0.1f);
-        }
+        }*/
         // OOB check
-        else if (transform.position.y < floorHeight && ballPos.Count > 0)
+        if (transform.position.y < floorHeight && ballPos.Count > 0)
         {
             Debug.Log("OOB CHECK");
             wasOOB = true;
@@ -148,8 +148,9 @@ public class Ball : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("BallCapture"))
         {
-            if (GameManager.S) GameManager.S.OnBallCaptured();
-            else if (!levelComplete)
+            Debug.Log("HERE");
+            //if (GameManager.S) GameManager.S.OnBallCaptured();
+            if (!levelComplete)
             {
                 levelComplete = true;
                 if (!laterLevel)

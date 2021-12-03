@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hole2.unity
     guid: 663fb0d6b1b7670488b3db66970609ab
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 08a9e60cb2607de4daf5516951234094
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
