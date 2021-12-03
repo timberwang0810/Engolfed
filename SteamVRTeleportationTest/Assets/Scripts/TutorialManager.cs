@@ -9,10 +9,12 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager S;
     public GameObject golfSwingPanel;
     public GameObject scorecardPanel;
+    public GameObject returnCardPanel;
     public GameObject teleportationPanel;
 
     public bool hasSwung = false;
     public bool hasScorecarded = false;
+    public bool hasScorecardReturned = false;
     public int numScorecarded = 0;
 
     public Teleport teleport;
@@ -40,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         to.GetComponent<Image>().canvasRenderer.SetAlpha(0);
         to.SetActive(true);
         to.GetComponent<Image>().CrossFadeAlpha(1, 2, false);
+        from.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -59,7 +62,14 @@ public class TutorialManager : MonoBehaviour
         numScorecarded++;
         if (!hasSwung || hasScorecarded) return;
         hasScorecarded = true;
-        StartCoroutine(PanelTransitionCoroutine(scorecardPanel, teleportationPanel));
+        StartCoroutine(PanelTransitionCoroutine(scorecardPanel, returnCardPanel));
+    }
+
+    public void OnScorecardReturned()
+    {
+        if (!hasSwung || !hasScorecarded || hasScorecardReturned) return;
+        hasScorecardReturned = true;
+        StartCoroutine(PanelTransitionCoroutine(returnCardPanel, teleportationPanel));
         teleport.LoadTutorialPanel(teleportationPanel);
     }
 }

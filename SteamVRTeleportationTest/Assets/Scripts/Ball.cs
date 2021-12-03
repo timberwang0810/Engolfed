@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
     public GameObject flag;
 
     public UIManager UI;
-    private int num_strokes = 1;
+    private int num_strokes = 0;
 
     private Vector3 direction;
 
@@ -126,6 +126,7 @@ public class Ball : MonoBehaviour
 
             num_strokes += 1;
             UI.UpdateStrokeCount(num_strokes);
+            StartCoroutine(TurnOffClubCollision(other));
 
             /*Vector3 vel_vec = other.gameObject.GetComponent<Club>().GetClubVelocity();
             speed = vel_vec.magnitude;
@@ -194,7 +195,7 @@ public class Ball : MonoBehaviour
     private IEnumerator TurnOffClubCollision(Collider other)
     {
         other.gameObject.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         other.gameObject.GetComponent<Collider>().enabled = true;
     }
 }

@@ -24,7 +24,11 @@ public class Scorecard : MonoBehaviour
             Debug.Log(hand.GetGrabStarting());
             if (hand.GetGrabStarting() != GrabTypes.None)
             {
-                if (!scorecardPrefab.activeSelf) SoundManager.S.MakeScorecardSound();
+                if (!scorecardPrefab.activeSelf)
+                {
+                    SoundManager.S.MakeScorecardSound();
+                    TutorialManager.S?.OnScorecardShown();
+                }
                 scorecardPrefab.SetActive(true);
                 hasGrabbed = true;
             }
@@ -33,7 +37,7 @@ public class Scorecard : MonoBehaviour
                 if (scorecardPrefab.activeSelf)
                 {
                     SoundManager.S.MakeScorecardSound();
-                    TutorialManager.S?.OnScorecardShown();
+                    TutorialManager.S?.OnScorecardReturned();
                 }
                 scorecardPrefab.SetActive(false);
             }
