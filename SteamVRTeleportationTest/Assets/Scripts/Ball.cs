@@ -106,7 +106,6 @@ public class Ball : MonoBehaviour
         // OOB check
         if (!levelComplete && transform.position.y < floorHeight && ballPos.Count > 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) > 0.5)
         {
-            Debug.Log("OOB CHECK");
             wasOOB = true;
             SoundManager.S.MakeOOBSound();
 
@@ -149,7 +148,6 @@ public class Ball : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("BallCapture"))
         {
-            Debug.Log("HERE");
             //if (GameManager.S) GameManager.S.OnBallCaptured();
             if (!levelComplete)
             {
