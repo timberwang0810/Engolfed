@@ -81,7 +81,7 @@ public class Ball : MonoBehaviour
         }
 
         // Near flag check
-        /*if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 0.3)
+        /*if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) <= 2)
         {
             if (GameManager.S) GameManager.S.OnBallCaptured();
             else if (!levelComplete)
@@ -104,7 +104,7 @@ public class Ball : MonoBehaviour
             //Destroy(this.gameObject, 0.1f);
         }*/
         // OOB check
-        if (transform.position.y < floorHeight && ballPos.Count > 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) > 0.5)
+        if (!levelComplete && transform.position.y < floorHeight && ballPos.Count > 0 && Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(flag.transform.position.x, flag.transform.position.z)) > 0.5)
         {
             Debug.Log("OOB CHECK");
             wasOOB = true;
@@ -167,6 +167,7 @@ public class Ball : MonoBehaviour
                 anim.SetTrigger("Open");
                 SoundManager.S.MakeChipInSounds();
                 GameObject.Find("backFence").SetActive(false);
+                //Destroy(this.gameObject, 1.0f);
             }
         }
     } 
